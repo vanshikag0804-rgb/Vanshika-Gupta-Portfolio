@@ -298,7 +298,7 @@ export const Hero: React.FC<HeroProps> = ({
           <button
             onClick={() => {
               playPopSound();
-              scrollToTarget(document.getElementById('contact'));
+              scrollToTarget(document.getElementById('about'));
             }}
             className="hero-icon-btn"
             title="Say hello"
