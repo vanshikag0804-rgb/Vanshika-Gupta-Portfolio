@@ -245,7 +245,7 @@ export const Hero: React.FC<HeroProps> = ({
           style={{ '--d': '0.7s' } as React.CSSProperties}
         >
           Curious by nature. Obsessed with details. I design simple, thoughtful products that solve{' '}
-          <span className="inline-block bg-sky-100 dark:bg-sky-900/40 text-sky-600 dark:text-sky-300 px-2 py-0.5 rounded-lg border border-sky-200/80 dark:border-sky-700/50">
+          <span className="inline-block bg-sky-100 dark:bg-sky-900/40 text-sky-600 dark:text-sky-300 px-2 py-0.5 rounded-lg">
             real problems
           </span>
           .
