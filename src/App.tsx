@@ -7,7 +7,6 @@ import { WorkSection } from './components/WorkSection';
 import { JourneySection } from './components/JourneySection';
 import { ExperimentsSection } from './components/ExperimentsSection';
 import { ArchiveSection } from './components/ArchiveSection';
-import { ResumeSection } from './components/ResumeSection';
 import { AboutSection } from './components/AboutSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
@@ -31,7 +30,6 @@ const NAV_FOR_SECTION: Record<string, string> = {
   experience: 'work',
   experiments: 'work',
   archive: 'work',
-  resume: 'resume',
   about: 'about',
   contact: 'about',
 };
@@ -143,7 +141,6 @@ export function App() {
         <JourneySection />
         <ExperimentsSection />
         <ArchiveSection />
-        <ResumeSection />
         <AboutSection />
         <ContactSection />
       </main>
