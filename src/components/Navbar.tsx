@@ -33,6 +33,10 @@ export const Navbar: React.FC<NavbarProps> = ({
   const handleNavClick = (href: string) => {
     playClickSound();
     setMobileMenuOpen(false);
+    if (href === '#resume') {
+      window.open(PERSONAL_INFO.resumeUrl, '_blank');
+      return;
+    }
     const target = document.querySelector(href);
     if (target) {
       scrollToTarget(target);
