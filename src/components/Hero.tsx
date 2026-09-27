@@ -23,9 +23,6 @@ const withFallback = (fallback: string) => (e: React.SyntheticEvent<HTMLImageEle
 
 const GIANT_NAME = 'Vanshika';
 
-const HERO_STATEMENT =
-  'Curious by nature. Obsessed with details. I design simple, thoughtful products that solve real problems.';
-
 // Three little "sparkle" dashes next to the stickers
 const SparkleLines: React.FC<{ className?: string }> = ({ className }) => (
   <svg viewBox="0 0 40 40" fill="none" className={className} aria-hidden="true">
@@ -247,7 +244,11 @@ export const Hero: React.FC<HeroProps> = ({
           className="hero-statement hero-reveal-ltr"
           style={{ '--d': '0.7s' } as React.CSSProperties}
         >
-          {HERO_STATEMENT}
+          Curious by nature. Obsessed with details. I design simple, thoughtful products that solve{' '}
+          <span className="inline-block bg-sky-100 dark:bg-sky-900/40 text-sky-600 dark:text-sky-300 px-2 py-0.5 rounded-lg border border-sky-200/80 dark:border-sky-700/50">
+            real problems
+          </span>
+          .
         </h2>
 
         <div className="flex flex-wrap gap-3 lg:gap-[1.5vw] mt-5 lg:mt-[3.4vh]">
