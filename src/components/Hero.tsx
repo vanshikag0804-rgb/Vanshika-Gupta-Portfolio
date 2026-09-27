@@ -24,9 +24,9 @@ const withFallback = (fallback: string) => (e: React.SyntheticEvent<HTMLImageEle
 const GIANT_NAME = 'Vanshika';
 
 const STATEMENT_LINES = [
-  'I design products and experiences',
-  'that make life simpler.',
-  'Interfaces that feel obvious.',
+  'Curious by nature. Obsessed with details.',
+  'I design simple, thoughtful products',
+  'that solve real problems.',
 ];
 
 // Three little "sparkle" dashes next to the stickers
