@@ -74,7 +74,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               onClick={() => handleNavClick('#contact')}
               aria-label="Contact me"
               title="Say hello"
-              className="w-[42px] h-[42px] rounded-full flex items-center justify-center bg-[var(--nav-chat-bg)] text-[var(--text-primary)] hover:scale-105 transition-transform mr-2"
+              className="w-[42px] h-[42px] rounded-full flex items-center justify-center bg-[var(--nav-chat-bg)] text-[var(--text-primary)] hover:scale-105 transition-transform"
             >
               <MessageCircle className="w-[19px] h-[19px]" strokeWidth={2} />
             </button>
