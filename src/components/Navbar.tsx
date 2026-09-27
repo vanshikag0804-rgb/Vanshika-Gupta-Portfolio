@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Search, FileText, MessageCircle, Volume2, VolumeX, Moon, Sun, Flame, Menu, X, Sparkles } from 'lucide-react';
+import { Search, MessageCircle, Volume2, VolumeX, Moon, Sun, Flame, Menu, X, Sparkles } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 import { playClickSound, playPopSound } from '../utils/sound';
 import { scrollToTarget } from '../utils/smoothScroll';
@@ -78,18 +78,6 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <MessageCircle className="w-[19px] h-[19px]" strokeWidth={2} />
             </button>
-
-            <a
-              href="#resume"
-              onClick={(e) => {
-                e.preventDefault();
-                handleNavClick('#resume');
-              }}
-              title="Resume"
-              className="w-[42px] h-[42px] rounded-full flex items-center justify-center text-[var(--text-primary)] hover:bg-[var(--badge-bg)] transition-colors"
-            >
-              <FileText className="w-[18px] h-[18px]" strokeWidth={2} />
-            </a>
 
             {navLinks.map((link) => {
               const isActive = activeSection === link.href.replace('#', '');
