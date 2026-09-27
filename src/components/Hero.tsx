@@ -24,9 +24,9 @@ const withFallback = (fallback: string) => (e: React.SyntheticEvent<HTMLImageEle
 const GIANT_NAME = 'Vanshika';
 
 const STATEMENT_LINES = [
-  'Curious by nature. Obsessed with details.',
-  'I design simple, thoughtful products',
-  'that solve real problems.',
+  'Curious by nature.',
+  'Obsessed with details.',
+  'I design simple, thoughtful products that solve real problems.',
 ];
 
 // Three little "sparkle" dashes next to the stickers
@@ -245,7 +245,7 @@ export const Hero: React.FC<HeroProps> = ({
       </div>
 
       {/* Bottom-left: statement + tags */}
-      <div className="relative z-30 px-5 sm:px-8 mt-8 lg:mt-0 lg:px-0 lg:absolute lg:left-[1.8vw] lg:bottom-[8.5vh] lg:max-w-[44vw]">
+      <div className="relative z-30 px-5 sm:px-8 mt-8 lg:mt-0 lg:px-0 lg:absolute lg:left-[1.8vw] lg:bottom-[8.5vh] lg:max-w-[48vw]">
         <h2 className="hero-statement">
           {STATEMENT_LINES.map((line, i) => (
             <span
