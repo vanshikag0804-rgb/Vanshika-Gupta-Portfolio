@@ -408,7 +408,7 @@
 
 /* ---------- Work / case-study showcase (always dark) ---------- */
 .work-frame {
-  background: linear-gradient(180deg, #2c3a50 0%, #18202c 38%, #0e1117 70%, #0b0c0f 100%);
+  background: linear-gradient(180deg, #1b1e26 0%, #13151b 40%, #0e1014 70%, #0b0c0f 100%);
 }
 
 /* 1px border that fades out toward the bottom */
@@ -418,7 +418,7 @@
   inset: 0;
   border-radius: inherit;
   padding: 1px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.08) 45%, transparent 75%);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.05) 45%, transparent 75%);
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
@@ -430,8 +430,6 @@
   border: 1.5px solid rgba(255, 255, 255, 0.14);
   border-bottom: none;
   border-radius: 18px 18px 0 0;
-  -webkit-mask-image: linear-gradient(180deg, #000 55%, transparent 95%);
-  mask-image: linear-gradient(180deg, #000 55%, transparent 95%);
 }
 
 .work-laptop-notch {

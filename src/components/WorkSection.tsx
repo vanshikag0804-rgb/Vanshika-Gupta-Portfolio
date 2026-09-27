@@ -69,20 +69,19 @@ const ShowcaseCard: React.FC<{ project: Project; index: number; onOpen: () => vo
         className="relative cursor-pointer"
       >
         {/* Frame with a border that fades out toward the bottom */}
-        <div className="work-frame relative aspect-[4/3] sm:aspect-[2/1] rounded-[20px] overflow-hidden">
+        <div className="work-frame relative aspect-[4/3] sm:aspect-[16/9] rounded-[20px] overflow-hidden">
           {/* Laptop outline */}
-          <div className="work-laptop absolute left-1/2 -translate-x-1/2 top-[14%] w-[80%] sm:w-[62%] aspect-[16/10]">
+          <div className="work-laptop absolute left-1/2 -translate-x-1/2 top-[8%] sm:top-[6%] w-[88%] sm:w-[72%] aspect-[16/10]">
             <span className="work-laptop-notch" />
             {/* Browser window */}
-            <div className="absolute left-[5.5%] right-[16%] top-[12%] bottom-[-4%] rounded-t-md bg-[#15171c] border border-white/10 overflow-hidden">
-              <div className="flex items-center gap-1.5 px-2.5 h-[7%] min-h-[14px] bg-[#1d2027] border-b border-white/5">
+            <div className="absolute left-[3%] right-[3%] top-[8%] bottom-0 rounded-t-md bg-[#15171c] border border-white/10 overflow-hidden flex flex-col">
+              <div className="flex items-center gap-1.5 px-2.5 py-1.5 bg-[#1d2027] border-b border-white/5 shrink-0">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#ff5f57]" />
                 <span className="w-1.5 h-1.5 rounded-full bg-[#febc2e]" />
                 <span className="w-1.5 h-1.5 rounded-full bg-[#28c840]" />
-                <span className="ml-2 h-[60%] w-[22%] rounded-t-sm bg-[#2a2e37]" />
+                <span className="ml-2 h-2.5 w-24 rounded-sm bg-[#2a2e37]" />
               </div>
-              <div className="h-[5%] min-h-[10px] mx-2 my-1 rounded-full bg-[#23262e]" />
-              <div className="relative h-full">
+              <div className="relative flex-1 w-full overflow-hidden bg-[#0e1015]">
                 {showcase?.screen && screenOk ? (
                   <img
                     src={showcase.screen}
@@ -94,7 +93,7 @@ const ShowcaseCard: React.FC<{ project: Project; index: number; onOpen: () => vo
                   <div
                     className="absolute inset-0"
                     style={{
-                      background: `radial-gradient(ellipse 70% 60% at 50% 70%, ${project.accentColor}cc 0%, ${project.accentColor}33 45%, transparent 75%), #0e1015`,
+                      background: `#0e1015`,
                     }}
                   />
                 )}
@@ -102,22 +101,17 @@ const ShowcaseCard: React.FC<{ project: Project; index: number; onOpen: () => vo
             </div>
           </div>
 
-          {/* Bottom fade into the page */}
-          <div className="absolute inset-x-0 bottom-0 h-[45%] bg-gradient-to-b from-transparent to-[#0b0c0f] pointer-events-none z-10" />
+          {/* Subtle bottom edge blend */}
+          <div className="absolute inset-x-0 bottom-0 h-[10%] bg-gradient-to-b from-transparent to-[#0b0c0f]/70 pointer-events-none z-10" />
         </div>
 
-        {/* Artwork bursting out of the frame (or a glow until the art exists) */}
-        {showcase?.art && artOk ? (
+        {/* Artwork bursting out of the frame */}
+        {showcase?.art && artOk && (
           <img
             src={showcase.art}
             onError={() => setArtOk(false)}
             alt=""
             className="work-art absolute left-[18%] sm:left-[22%] top-[6%] sm:top-[8%] w-[64%] sm:w-[56%] z-20 pointer-events-none"
-          />
-        ) : (
-          <div
-            className="work-art absolute left-1/2 top-[48%] -translate-x-1/2 -translate-y-1/2 w-[46%] aspect-square rounded-full blur-3xl opacity-60 z-20 pointer-events-none"
-            style={{ background: `radial-gradient(circle, ${project.accentColor} 0%, transparent 65%)` }}
           />
         )}
 
