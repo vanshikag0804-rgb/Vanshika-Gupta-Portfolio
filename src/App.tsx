@@ -8,7 +8,6 @@ import { JourneySection } from './components/JourneySection';
 import { ExperimentsSection } from './components/ExperimentsSection';
 import { ArchiveSection } from './components/ArchiveSection';
 import { AboutSection } from './components/AboutSection';
-import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { ProjectModal } from './components/ProjectModal';
 import { CommandPalette } from './components/CommandPalette';
@@ -31,7 +30,6 @@ const NAV_FOR_SECTION: Record<string, string> = {
   experiments: 'work',
   archive: 'work',
   about: 'about',
-  contact: 'about',
 };
 
 const nextTheme = (prev: Theme): Theme => (prev === 'light' ? 'dark' : prev === 'dark' ? 'warm' : 'light');
@@ -142,7 +140,6 @@ export function App() {
         <ExperimentsSection />
         <ArchiveSection />
         <AboutSection />
-        <ContactSection />
       </main>
 
       <Footer />
