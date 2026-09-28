@@ -18,10 +18,12 @@ export const CompaniesStrip: React.FC = () => {
               {loop.map((company, i) => (
                 <div key={`${company.name}-${i}`} className="flex items-center shrink-0">
                   <span className="company-mark">
-                    {company.logo ? (
-                      <img src={company.logo} alt={company.name} className="h-8 w-auto" />
-                    ) : (
-                      company.name
+                    {company.logo && (
+                      <img
+                        src={company.logo}
+                        alt={company.name}
+                        className="company-logo"
+                      />
                     )}
                     <span className="company-type">{company.type}</span>
                   </span>

@@ -170,9 +170,9 @@ export const PROJECTS: Project[] = [
 ];
 
 export const COMPANIES: Company[] = [
-  { name: 'Aavtor AI', type: 'Freelance' },
-  { name: 'My Hub Retail', type: 'Internship' },
-  { name: 'Tanzcorp', type: 'Internship' },
+  { name: 'Aavtor AI', type: 'Freelance', logo: '/images/logos/aavtor.png' },
+  { name: 'My Hub Retail', type: 'Internship', logo: '/images/logos/myhub.png' },
+  { name: 'Tanzcorp', type: 'Internship', logo: '/images/logos/tanzcorp.png' },
 ];
 
 export const INTRO = {
