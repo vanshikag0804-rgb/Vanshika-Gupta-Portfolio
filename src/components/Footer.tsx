@@ -8,7 +8,7 @@ export const Footer: React.FC = () => {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="panel panel--night !pb-10">
+    <footer id="footer" className="panel panel--night !pb-10">
       <div className="panel-inner">
         <div className="grid md:grid-cols-[1.4fr_1fr_1fr] gap-12">
           <div>

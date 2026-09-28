@@ -75,8 +75,8 @@ export const Navbar: React.FC<NavbarProps> = ({
         <div className="fixed top-5 lg:top-[42px] right-5 sm:right-8 lg:right-[1.8vw] z-50">
           <nav className="hidden lg:flex items-center gap-1 nav-pill">
             <button
-              onClick={() => handleNavClick('#about')}
-              aria-label="About me"
+              onClick={() => handleNavClick('#footer')}
+              aria-label="Footer"
               title="Say hello"
               className="w-[42px] h-[42px] rounded-full flex items-center justify-center bg-[var(--nav-chat-bg)] text-[var(--text-primary)] hover:scale-105 transition-transform"
               style={{ marginRight: '8px' }}
