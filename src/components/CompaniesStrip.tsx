@@ -23,6 +23,13 @@ export const CompaniesStrip: React.FC = () => {
                         src={company.logo}
                         alt={company.name}
                         className="company-logo"
+                        style={
+                          company.name.includes('Tanzcorp')
+                            ? { height: 'clamp(1.6rem, 2.8vw, 2.2rem)' }
+                            : company.name.includes('My Hub')
+                            ? { height: 'clamp(2.4rem, 4.2vw, 3.4rem)' }
+                            : { height: 'clamp(2.5rem, 4.4vw, 3.5rem)' }
+                        }
                       />
                     )}
                     <span className="company-type">{company.type}</span>

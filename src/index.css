@@ -935,18 +935,21 @@ html.is-loading .hero-stage * {
 }
 
 .company-logo {
-  height: clamp(2rem, 3.8vw, 2.75rem);
+  height: clamp(2.5rem, 4.5vw, 3.6rem);
   width: auto;
+  max-width: 220px;
   object-fit: contain;
-  filter: grayscale(100%) contrast(120%);
-  mix-blend-mode: multiply;
-  opacity: 0.9;
-  transition: opacity 0.25s ease, filter 0.25s ease;
+  opacity: 0.88;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.company-logo:hover {
+  opacity: 1;
+  transform: scale(1.04);
 }
 
 [data-theme='dark'] .company-logo {
-  filter: grayscale(100%) invert(1) brightness(1.2);
-  mix-blend-mode: screen;
+  filter: invert(1) brightness(1.8);
 }
 
 .company-type {
