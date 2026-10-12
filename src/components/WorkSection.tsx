@@ -172,7 +172,7 @@ const VisualCaseStudyCard: React.FC<{ project: Project; onOpen: () => void }> = 
           >
             <img
               src={project.coverImage}
-              alt={project.title}
+              alt={project.coverImageAlt || `${project.title} interface design mockup`}
               className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
             />
           </div>

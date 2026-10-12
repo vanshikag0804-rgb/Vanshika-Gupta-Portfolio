@@ -10,6 +10,7 @@ const SERVICE_CARDS: HoverStackCard[] = [
     location: 'India',
     iconText: 't',
     logoUrl: '/images/logos/tierce.jpg',
+    logoAlt: 'Tierce India company logo',
     gradient: 'from-cyan-500 to-blue-600',
     bullets: [
       {
@@ -29,6 +30,7 @@ const SERVICE_CARDS: HoverStackCard[] = [
     location: 'Remote · India',
     iconText: 'a',
     logoUrl: '/images/logos/aavtor.png',
+    logoAlt: 'Aavtor AI startup logo',
     gradient: 'from-indigo-500 to-purple-600',
     bullets: [
       {
@@ -48,6 +50,7 @@ const SERVICE_CARDS: HoverStackCard[] = [
     location: 'India',
     iconText: 'm',
     logoUrl: '/images/logos/myhub.png',
+    logoAlt: 'My Hub Retail company logo',
     gradient: 'from-emerald-400 to-teal-600',
     bullets: [
       {
@@ -67,6 +70,7 @@ const SERVICE_CARDS: HoverStackCard[] = [
     location: 'India',
     iconText: 't',
     logoUrl: '/images/logos/tanzcorp.png',
+    logoAlt: 'Tanzcorp enterprise logo',
     gradient: 'from-slate-700 to-slate-900',
     bullets: [
       {
@@ -86,7 +90,7 @@ export const WhatIDoSection: React.FC = () => (
   <section id="what-i-do" className="panel panel--white py-16 sm:py-24 border-t border-black/5 overflow-visible">
     <div className="panel-inner max-w-6xl mx-auto px-4 sm:px-6 overflow-visible">
       <Reveal className="mb-8">
-        <h2 className="section-title">My journey so far</h2>
+        <h2 className="section-title">Work Experience</h2>
       </Reveal>
       <Reveal className="mt-12 flex justify-center">
         <HoverStack cards={SERVICE_CARDS} cardWidth={420} cardHeight={310} overlap={140} pushDistance={180} />

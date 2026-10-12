@@ -20,7 +20,7 @@ export const PERSONAL_INFO = {
   avatar: '/images/portrait.jpg',
   location: 'India · Remote',
   email: 'vanshikag0804@gmail.com',
-  resumeUrl: 'https://drive.google.com/file/d/11YQYxJlTeUBdZpAg275t550IkQrqlZ4b/view',
+  resumeUrl: 'https://drive.google.com/file/d/17_h_ZpDaBnOihZV5TO8Q6_rBCdBuLs4L/view?usp=sharing',
   socials: {
     linkedin: 'https://www.linkedin.com/in/vanshika-gupta-3aa750247/',
     behance: 'https://www.behance.net/guptavanshika',
@@ -44,7 +44,9 @@ export const PROJECTS: Project[] = [
     bannerSubtitle: 'Designing store management and purchasing flows.',
     bannerGradient: 'from-[#0A192F] via-[#0F2942] to-[#051329]',
     coverImage: '/images/projects/paymob-cover.jpg',
+    coverImageAlt: 'MYHub Retail mobile app mockups displaying store inventory, point of sale catalog, and incoming customer orders on smartphones',
     caseStudyImage: '',
+    caseStudyImageAlt: 'MYHub Retail omnichannel retail management case study presentation displaying mobile interface flows',
     fullCover: true,
     mockupType: 'paymob',
     impactMetrics: [
@@ -87,7 +89,9 @@ export const PROJECTS: Project[] = [
     bannerSubtitle: 'Designing the 0 → 1 conversational agent for local services.',
     bannerGradient: 'from-[#0F172A] via-[#1E293B] to-[#090D16]',
     coverImage: '/images/projects/aavtor-cover.jpg',
+    coverImageAlt: 'Aavtor.ai conversational AI interface mockup on a smartphone displaying natural language service booking flow',
     caseStudyImage: '/images/projects/aavtor-cover.jpg',
+    caseStudyImageAlt: 'Aavtor.ai conversational AI mobile app user journey, prompt interface, and booking confirmation screens',
     fullCover: true,
     mockupType: 'aavtor',
     impactMetrics: [
@@ -133,7 +137,9 @@ export const EXPERIMENT_PROJECTS: Project[] = [
     bannerSubtitle: 'High-quality Figma components with variables for faster project setup and maintenance.',
     bannerGradient: 'from-[#0A192F] via-[#0F2942] to-[#051329]',
     coverImage: '/images/projects/storybook-cover.jpg',
+    coverImageAlt: 'My Hub Retail Design System documentation showing Figma component tokens, spacing scales, button states, and color swatches',
     caseStudyImage: '/images/projects/storybook-cover.jpg',
+    caseStudyImageAlt: 'My Hub Retail design tokens specification sheet and interactive Figma component library',
     fullCover: true,
     mockupType: 'storybook',
     impactMetrics: [
@@ -170,7 +176,9 @@ export const EXPERIMENT_PROJECTS: Project[] = [
     bannerSubtitle: 'Exploring LLMs to automatically produce contrast-safe color ramps and type scales.',
     bannerGradient: 'from-[#0891B2] via-[#0E7490] to-[#164E63]',
     coverImage: '/images/projects/storybook-exp2.jpg',
+    coverImageAlt: 'Design system Storybook interface showcasing payment method selection modal states with UPI, Card, and Cash controls',
     caseStudyImage: '/images/projects/storybook-exp2.jpg',
+    caseStudyImageAlt: 'Interactive UI component sandbox displaying bottom sheet payment selection states and controls',
     fullCover: true,
     mockupType: 'ai-system',
     impactMetrics: [

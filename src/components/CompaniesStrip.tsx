@@ -29,7 +29,7 @@ export const CompaniesStrip: React.FC = () => {
                     {company.logo && (
                       <img
                         src={company.logo}
-                        alt={company.name}
+                        alt={copy === 1 ? '' : `${company.name} logo`}
                         className={`company-logo ${getLogoClass(company.name)}`}
                       />
                     )}

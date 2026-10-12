@@ -67,7 +67,7 @@ export const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ project, o
             <div className="w-full rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl border border-slate-200 bg-slate-50 flex justify-center p-2 sm:p-4">
               <img
                 src={project.caseStudyImage}
-                alt={`${project.title} Full Case Study`}
+                alt={project.caseStudyImageAlt || `${project.title} case study design presentation and UI screens`}
                 className="max-w-full h-auto object-contain block mx-auto rounded-xl shadow-xs"
               />
             </div>

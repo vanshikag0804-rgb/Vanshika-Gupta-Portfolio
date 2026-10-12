@@ -142,7 +142,7 @@ export const Hero: React.FC<HeroProps> = ({
             <img
               src="/heroimg.png"
               onError={withFallback('/images/portrait.jpg')}
-              alt="Vanshika Gupta - Product Designer"
+              alt="Full-length portrait cutout of product designer Vanshika Gupta in a tailored suit holding a handbag"
               className="h-full w-auto max-w-[94vw] lg:max-w-none object-contain object-bottom pointer-events-none"
             />
             {/* Soft ground shadow under the feet */}

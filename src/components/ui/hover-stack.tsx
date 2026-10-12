@@ -19,6 +19,7 @@ export interface HoverStackCard {
   gradient?: string;
   iconText?: string;
   logoUrl?: string;
+  logoAlt?: string;
   quote?: string;
   bullets?: BulletItem[];
   tag?: string;
@@ -156,7 +157,11 @@ function InnerCardContent({ card }: { card: HoverStackCard; index?: number }) {
           <div className="p-0.5 bg-white rounded-lg shadow-xs border border-slate-200 shrink-0">
             <div className="w-10 h-10 rounded-md bg-[#111625] flex items-center justify-center text-[#00E5FF] text-xl font-bold font-sans overflow-hidden">
               {card.logoUrl ? (
-                <img src={card.logoUrl} alt={card.subtitle || 'Company logo'} className="w-full h-full object-contain p-1 bg-white" />
+                <img
+                  src={card.logoUrl}
+                  alt={card.logoAlt || `${card.subtitle ? card.subtitle.split('·')[0].trim() : 'Company'} logo`}
+                  className="w-full h-full object-contain p-1 bg-white"
+                />
               ) : (
                 card.iconText || "g"
               )}

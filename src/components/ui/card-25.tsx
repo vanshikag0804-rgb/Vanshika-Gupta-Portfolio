@@ -10,6 +10,7 @@ export interface Stat {
 export interface AnimatedHikeCardProps {
   title?: string;
   images: string[];
+  imageAlts?: string[];
   stats?: Stat[];
   description?: string;
   href?: string;
@@ -19,7 +20,7 @@ export interface AnimatedHikeCardProps {
 export const AnimatedHikeCard = React.forwardRef<
   HTMLAnchorElement,
   AnimatedHikeCardProps
->(({ title, images, stats, description, href, className }, ref) => {
+>(({ title, images, imageAlts, stats, description, href, className }, ref) => {
   const [hoveredCardIndex, setHoveredCardIndex] = useState<number | null>(null);
   const [isDeckHovered, setIsDeckHovered] = useState(false);
   const [isDesktop, setIsDesktop] = useState(true);
@@ -111,7 +112,7 @@ export const AnimatedHikeCard = React.forwardRef<
                 <div className="w-full h-full overflow-hidden rounded-lg sm:rounded-xl bg-slate-100">
                   <img
                     src={src}
-                    alt={`${title || 'Preview'} view ${index + 1}`}
+                    alt={imageAlts?.[index] || `${title || 'Portfolio snapshot'} ${index + 1}`}
                     className="h-full w-full object-cover object-top pointer-events-none select-none"
                   />
                 </div>

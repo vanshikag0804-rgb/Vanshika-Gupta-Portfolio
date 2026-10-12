@@ -27,8 +27,10 @@ export interface Project {
   bannerGradient?: string;
   mockupType?: 'paymob' | 'lumina' | 'aura' | 'storybook' | 'ai-system' | 'aavtor';
   coverImage?: string;
+  coverImageAlt?: string;
   fullCover?: boolean;
   caseStudyImage?: string;
+  caseStudyImageAlt?: string;
 }
 
 export interface ShowcaseCursor {
