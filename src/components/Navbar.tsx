@@ -2,45 +2,45 @@ import React, { useState } from 'react';
 import { Search, MessageCircle, Volume2, VolumeX, Moon, Sun, Flame, Menu, X, Sparkles } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 import { playClickSound, playPopSound } from '../utils/sound';
-import { scrollToTarget } from '../utils/smoothScroll';
 
 interface NavbarProps {
-  activeSection: string;
+  currentPage: string;
+  onSelectPage: (page: string) => void;
   onOpenCommandPalette: () => void;
   isSoundOn: boolean;
   onToggleSound: () => void;
   theme: 'light' | 'dark' | 'warm';
   onChangeTheme: (theme: 'light' | 'dark' | 'warm') => void;
+  isProjectView?: boolean;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
-  activeSection,
+  currentPage,
+  onSelectPage,
   onOpenCommandPalette,
   isSoundOn,
   onToggleSound,
   theme,
   onChangeTheme,
+  isProjectView,
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navLinks = [
-    { name: 'HOME', href: '#home' },
-    { name: 'WORK', href: '#work' },
-    { name: 'RESUME', href: '#resume' },
-    { name: 'ABOUT', href: '#about' },
+    { name: 'HOME', id: 'home' },
+    { name: 'WORK', id: 'work' },
+    { name: 'RESUME', id: 'resume' },
+    { name: 'ABOUT', id: 'about' },
   ];
 
-  const handleNavClick = (href: string) => {
+  const handleNavClick = (id: string) => {
     playClickSound();
     setMobileMenuOpen(false);
-    if (href === '#resume') {
+    if (id === 'resume') {
       window.open(PERSONAL_INFO.resumeUrl, '_blank');
       return;
     }
-    const target = document.querySelector(href);
-    if (target) {
-      scrollToTarget(target);
-    }
+    onSelectPage(id);
   };
 
   const cycleTheme = () => {
@@ -53,11 +53,13 @@ export const Navbar: React.FC<NavbarProps> = ({
   return (
     <header className="absolute top-0 left-0 right-0 z-50 pt-5 lg:pt-[42px]">
       <div className="px-5 sm:px-8 lg:px-[1.8vw] flex items-center justify-between">
-        {/* Left: Avatar + Name (scrolls away with the hero) */}
-        <a
-          href="#home"
-          onClick={() => playPopSound()}
-          className="flex items-center gap-4 lg:gap-5 group"
+        {/* Left: Avatar + Name */}
+        <button
+          onClick={() => {
+            playPopSound();
+            onSelectPage('home');
+          }}
+          className="flex items-center gap-4 lg:gap-5 group text-left cursor-pointer"
         >
           <div className="headshot w-11 h-11 lg:w-[58px] lg:h-[58px] shadow-[0_4px_14px_rgba(0,0,0,0.12)]">
             <img
@@ -66,16 +68,22 @@ export const Navbar: React.FC<NavbarProps> = ({
               className="headshot-img group-hover:scale-110 transition-transform duration-500"
             />
           </div>
-          <span className="font-bold text-xl lg:text-[30px] tracking-[-0.01em] text-[var(--text-primary)]">
+          <span className={`font-bold text-xl lg:text-[30px] tracking-[-0.01em] transition-colors ${
+            isProjectView || currentPage === 'about' || theme === 'light' ? 'text-black' : 'text-white'
+          }`}>
             {PERSONAL_INFO.name}
           </span>
-        </a>
+        </button>
 
         {/* Right: nav pill stays pinned while scrolling */}
         <div className="fixed top-5 lg:top-[42px] right-5 sm:right-8 lg:right-[1.8vw] z-50">
           <nav className="hidden lg:flex items-center gap-1 nav-pill">
             <button
-              onClick={() => handleNavClick('#footer')}
+              onClick={() => {
+                playClickSound();
+                const footer = document.querySelector('#footer');
+                if (footer) footer.scrollIntoView({ behavior: 'smooth' });
+              }}
               aria-label="Footer"
               title="Say hello"
               className="w-[42px] h-[42px] rounded-full flex items-center justify-center bg-[var(--nav-chat-bg)] text-[var(--text-primary)] hover:scale-105 transition-transform"
@@ -85,11 +93,11 @@ export const Navbar: React.FC<NavbarProps> = ({
             </button>
 
             {navLinks.map((link) => {
-              const isActive = activeSection === link.href.replace('#', '');
+              const isActive = currentPage === link.id;
               return (
                 <button
                   key={link.name}
-                  onClick={() => handleNavClick(link.href)}
+                  onClick={() => handleNavClick(link.id)}
                   className={`nav-link ${isActive ? 'is-active' : ''}`}
                 >
                   {link.name}
@@ -105,7 +113,11 @@ export const Navbar: React.FC<NavbarProps> = ({
                 playClickSound();
                 onOpenCommandPalette();
               }}
-              className="p-2.5 rounded-full bg-[var(--bg-surface)] border border-[var(--border-glass)] text-[var(--text-primary)]"
+              className={`p-2.5 rounded-full border ${
+                isProjectView
+                  ? 'bg-slate-100 border-slate-200 text-slate-800'
+                  : 'bg-[var(--bg-surface)] border-[var(--border-glass)] text-[var(--text-primary)]'
+              }`}
               aria-label="Search"
             >
               <Search className="w-4 h-4" />
@@ -113,7 +125,11 @@ export const Navbar: React.FC<NavbarProps> = ({
 
             <button
               onClick={cycleTheme}
-              className="p-2.5 rounded-full bg-[var(--bg-surface)] border border-[var(--border-glass)] text-[var(--text-primary)]"
+              className={`p-2.5 rounded-full border ${
+                isProjectView
+                  ? 'bg-slate-100 border-slate-200 text-slate-800'
+                  : 'bg-[var(--bg-surface)] border-[var(--border-glass)] text-[var(--text-primary)]'
+              }`}
               aria-label="Change Theme"
             >
               {theme === 'light' && <Sun className="w-4 h-4 text-amber-500" />}
@@ -126,7 +142,11 @@ export const Navbar: React.FC<NavbarProps> = ({
                 playPopSound();
                 setMobileMenuOpen(!mobileMenuOpen);
               }}
-              className="p-2.5 rounded-full bg-[var(--text-primary)] text-[var(--bg-surface)]"
+              className={`p-2.5 rounded-full ${
+                isProjectView
+                  ? 'bg-slate-900 text-white'
+                  : 'bg-[var(--text-primary)] text-[var(--bg-surface)]'
+              }`}
               aria-label="Open Menu"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -155,8 +175,12 @@ export const Navbar: React.FC<NavbarProps> = ({
             {navLinks.map((link) => (
               <button
                 key={link.name}
-                onClick={() => handleNavClick(link.href)}
-                className="text-left px-4 py-3 rounded-xl font-bold text-sm bg-[var(--bg-secondary)] text-[var(--text-primary)] hover:bg-[var(--text-primary)] hover:text-[var(--bg-surface)] transition-all"
+                onClick={() => handleNavClick(link.id)}
+                className={`text-left px-4 py-3 rounded-xl font-bold text-sm transition-all ${
+                  currentPage === link.id
+                    ? 'bg-[var(--text-primary)] text-[var(--bg-surface)]'
+                    : 'bg-[var(--bg-secondary)] text-[var(--text-primary)] hover:bg-[var(--text-primary)] hover:text-[var(--bg-surface)]'
+                }`}
               >
                 {link.name}
               </button>
@@ -166,7 +190,9 @@ export const Navbar: React.FC<NavbarProps> = ({
           <div className="pt-2">
             <button
               onClick={() => {
-                handleNavClick('#contact');
+                setMobileMenuOpen(false);
+                const footer = document.querySelector('#footer');
+                if (footer) footer.scrollIntoView({ behavior: 'smooth' });
               }}
               className="w-full py-3 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-bold text-sm flex items-center justify-center gap-2 shadow-md"
             >
@@ -178,3 +204,4 @@ export const Navbar: React.FC<NavbarProps> = ({
     </header>
   );
 };
+

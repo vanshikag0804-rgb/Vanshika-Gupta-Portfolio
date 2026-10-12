@@ -3,7 +3,7 @@ export interface Project {
   title: string;
   subtitle: string;
   tagline: string;
-  category: 'FinTech' | 'AI & ML' | 'Design Systems' | 'Mobile Apps' | 'Web3' | 'SaaS';
+  category: 'FinTech' | 'AI & ML' | 'Design Systems' | 'Mobile Apps' | 'Web3' | 'SaaS' | 'Retail & e-commerce';
   year: string;
   role: string;
   duration: string;
@@ -20,6 +20,15 @@ export interface Project {
   behanceUrl?: string;
   deliverables: string[];
   showcase?: ProjectShowcase;
+  brandLogo?: string;
+  bannerBadge?: string;
+  bannerTitle?: string;
+  bannerSubtitle?: string;
+  bannerGradient?: string;
+  mockupType?: 'paymob' | 'lumina' | 'aura' | 'storybook' | 'ai-system' | 'aavtor';
+  coverImage?: string;
+  fullCover?: boolean;
+  caseStudyImage?: string;
 }
 
 export interface ShowcaseCursor {
@@ -64,6 +73,7 @@ export interface Company {
 export interface Stat {
   value: string;
   label: string;
+  sublabel?: string;
 }
 
 export interface Service {

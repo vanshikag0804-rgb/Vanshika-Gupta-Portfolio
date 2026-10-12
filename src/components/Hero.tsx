@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { ArrowUpRight, ArrowRight, Heart, MessageSquare, Volume2, VolumeX } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
-import { playPopSound, playWiggleSound, playChimeSound, playClickSound } from '../utils/sound';
+import { playPopSound, playChimeSound, playClickSound } from '../utils/sound';
 import confetti from 'canvas-confetti';
 import { scrollToTarget } from '../utils/smoothScroll';
 
@@ -22,15 +22,6 @@ const withFallback = (fallback: string) => (e: React.SyntheticEvent<HTMLImageEle
 };
 
 const GIANT_NAME = 'Vanshika';
-
-// Three little "sparkle" dashes next to the stickers
-const SparkleLines: React.FC<{ className?: string }> = ({ className }) => (
-  <svg viewBox="0 0 40 40" fill="none" className={className} aria-hidden="true">
-    <path d="M8 4 L11 13" stroke="#3b9cf5" strokeWidth="4" strokeLinecap="round" />
-    <path d="M22 10 L15 17" stroke="#3b9cf5" strokeWidth="4" strokeLinecap="round" />
-    <path d="M30 24 L19 24" stroke="#3b9cf5" strokeWidth="4" strokeLinecap="round" />
-  </svg>
-);
 
 const DotGridIcon: React.FC = () => (
   <svg viewBox="0 0 20 20" className="w-5 h-5" fill="currentColor" aria-hidden="true">
@@ -57,8 +48,6 @@ export const Hero: React.FC<HeroProps> = ({
   onOpenCommandPalette,
 }) => {
   const [mouseOffset, setMouseOffset] = useState({ x: 0, y: 0 });
-  const [catWiggle, setCatWiggle] = useState(false);
-  const [ramenBounce, setRamenBounce] = useState(false);
   const [hasLiked, setHasLiked] = useState(false);
   const [activeTag, setActiveTag] = useState<string | null>(null);
   const sectionRef = useRef<HTMLElement>(null);
@@ -101,18 +90,6 @@ export const Hero: React.FC<HeroProps> = ({
     transform: `translate3d(${mouseOffset.x * depth}px, ${mouseOffset.y * depth}px, 0)`,
   });
 
-  const handleCatClick = () => {
-    playWiggleSound();
-    setCatWiggle(true);
-    setTimeout(() => setCatWiggle(false), 800);
-  };
-
-  const handleRamenClick = () => {
-    playPopSound();
-    setRamenBounce(true);
-    setTimeout(() => setRamenBounce(false), 800);
-  };
-
   const handleHeartClick = () => {
     playChimeSound();
     setHasLiked(!hasLiked);
@@ -153,26 +130,6 @@ export const Hero: React.FC<HeroProps> = ({
                 {letter}
               </span>
             ))}
-
-            {/* Sticker: purple cat perched on the starting edge of the "V" */}
-            <span className="hero-cat-anchor" style={parallax(1.45)}>
-              <span className="hero-enter-pop block" style={{ '--d': '1.3s' } as React.CSSProperties}>
-                <button
-                  onClick={handleCatClick}
-                  className={`relative block sticker-item ${catWiggle ? 'animate-wiggle-once' : 'animate-float-1'}`}
-                  title="Click me for magic!"
-                  aria-label="Purple cat sticker"
-                >
-                  <img
-                    src="/images/cat.png"
-                    onError={withFallback('/images/cat.jpg')}
-                    alt=""
-                    className="w-[0.5em] h-auto -rotate-[14deg] drop-shadow-[0_18px_22px_rgba(80,40,120,0.25)]"
-                  />
-                  <SparkleLines className="absolute -top-[18%] -right-[26%] w-[42%]" />
-                </button>
-              </span>
-            </span>
           </h1>
         </div>
 
@@ -210,29 +167,6 @@ export const Hero: React.FC<HeroProps> = ({
                   hasLiked ? 'fill-rose-500 text-rose-500' : 'fill-[#3b9cf5] text-[#3b9cf5]'
                 }`}
               />
-            </button>
-          </div>
-        </div>
-
-        {/* Sticker: smiling ramen cup */}
-        <div
-          className="absolute top-[48%] right-[2%] lg:top-[44.6%] lg:right-auto lg:left-[76.9%] z-20 transition-transform duration-300 ease-out"
-          style={parallax(1.4)}
-        >
-          <div className="hero-enter-pop" style={{ '--d': '1.55s' } as React.CSSProperties}>
-            <button
-              onClick={handleRamenClick}
-              className={`relative block sticker-item ${ramenBounce ? 'animate-wiggle-once' : 'animate-float-2'}`}
-              title="Fueled by noodles & design!"
-              aria-label="Ramen sticker"
-            >
-              <img
-                src="/images/ramen.png"
-                onError={withFallback('/images/ramen.jpg')}
-                alt=""
-                className="w-[24vw] lg:w-[calc(7.5*var(--u))] h-auto drop-shadow-[0_18px_22px_rgba(200,90,120,0.22)]"
-              />
-              <SparkleLines className="absolute top-[36%] -right-[34%] w-[36%] rotate-[100deg]" />
             </button>
           </div>
         </div>
@@ -298,7 +232,7 @@ export const Hero: React.FC<HeroProps> = ({
           <button
             onClick={() => {
               playPopSound();
-              scrollToTarget(document.getElementById('about'));
+              scrollToTarget(document.getElementById('about') || document.getElementById('footer'));
             }}
             className="hero-icon-btn"
             title="Say hello"

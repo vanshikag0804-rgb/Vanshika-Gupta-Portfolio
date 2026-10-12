@@ -1,51 +1,54 @@
 import React from 'react';
-import { EXPERIENCE } from '../data/portfolioData';
-import { Reveal, SectionHeading } from './Reveal';
+import { Reveal } from './Reveal';
+import { CardStack, type CardStackItem } from './ui/card-stack';
 
-// "The journey so far": experience timeline
+const SKILL_STACK_ITEMS: CardStackItem[] = [
+  {
+    id: 1,
+    title: 'Fees should appear when they become relevant',
+    description: 'Showing every fee upfront solved transparency, but risked turning checkout into a pricing table.',
+  },
+  {
+    id: 2,
+    title: 'Interfaces should feel effortless and responsive',
+    description: 'Polished layouts, typography scales, high-contrast themes & responsive visual language across devices.',
+  },
+  {
+    id: 3,
+    title: 'Design systems bridge product vision and engineering',
+    description: 'Figma Variables, multi-brand token repositories & automated engineering handoff for scalable products.',
+  },
+  {
+    id: 4,
+    title: 'Micro-interactions bring dynamic feedback to life',
+    description: 'Interactive touch gestures, subtle state feedback & spring physics animations that delight users.',
+  },
+  {
+    id: 5,
+    title: 'Shippable React code turns complex concepts into reality',
+    description: 'Architecting modular TypeScript & Tailwind CSS components with AI pair-coding and clean patterns.',
+  },
+];
+
 export const JourneySection: React.FC = () => (
-  <section id="experience" className="panel panel--lavender">
-    <div className="panel-inner">
-      <SectionHeading eyebrow="Experience" title="The journey so far">
-        One year, three teams, and a lot of first versions.
-      </SectionHeading>
+  <section id="experience" className="panel panel--white py-16 sm:py-24 border-t border-slate-100 overflow-hidden">
+    <div className="panel-inner max-w-6xl mx-auto px-4 sm:px-6">
+      <Reveal className="mb-8">
+        <h2 className="section-title">My core skill stack</h2>
+      </Reveal>
 
-      <ol className="journey-list">
-        {EXPERIENCE.map((job, i) => (
-          <Reveal key={job.id} as="li" delay={i * 0.08} className="journey-row">
-            <div className="journey-index">{String(i + 1).padStart(2, '0')}</div>
-
-            <div>
-              <div className="section-eyebrow">{job.period}</div>
-              <h3 className="journey-company">{job.company}</h3>
-              <div className="flex flex-wrap items-center gap-2 mt-2">
-                <span className="font-semibold">{job.role}</span>
-                <span className="panel-chip panel-chip--sm panel-chip--accent">{job.type}</span>
-                <span className="text-sm opacity-60">{job.location}</span>
-              </div>
-            </div>
-
-            <div>
-              <p className="leading-relaxed">{job.description}</p>
-              <ul className="mt-4 space-y-2">
-                {job.highlights.map((point) => (
-                  <li key={point} className="flex gap-3 text-[15px] opacity-80">
-                    <span className="journey-bullet" aria-hidden="true" />
-                    {point}
-                  </li>
-                ))}
-              </ul>
-              <div className="flex flex-wrap gap-2 mt-5">
-                {job.skills.map((skill) => (
-                  <span key={skill} className="panel-chip panel-chip--sm">
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </Reveal>
-        ))}
-      </ol>
+      <Reveal className="mt-8 flex justify-center">
+        <CardStack
+          items={SKILL_STACK_ITEMS}
+          initialIndex={0}
+          autoAdvance
+          intervalMs={3500}
+          pauseOnHover
+          showDots
+          cardWidth={350}
+          cardHeight={310}
+        />
+      </Reveal>
     </div>
   </section>
 );

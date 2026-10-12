@@ -28,6 +28,15 @@ export const scrollToTarget = (target: Element | number | null | undefined) => {
   }
 };
 
+// Scroll to top immediately or smoothly
+export const scrollToTop = (immediate = true) => {
+  if (lenis) {
+    lenis.scrollTo(0, { immediate });
+  }
+  window.scrollTo({ top: 0, behavior: immediate ? 'auto' : 'smooth' });
+};
+
 // Freeze / release page scrolling (used while the loader is on screen)
 export const stopScroll = () => lenis?.stop();
 export const startScroll = () => lenis?.start();
+

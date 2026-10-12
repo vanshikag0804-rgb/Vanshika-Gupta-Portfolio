@@ -4,44 +4,32 @@ import { Hero } from './components/Hero';
 import { CompaniesStrip } from './components/CompaniesStrip';
 import { IntroSection } from './components/IntroSection';
 import { WorkSection } from './components/WorkSection';
-import { JourneySection } from './components/JourneySection';
-import { ExperimentsSection } from './components/ExperimentsSection';
-import { ArchiveSection } from './components/ArchiveSection';
+import { WhatIDoSection } from './components/WhatIDoSection';
 import { AboutSection } from './components/AboutSection';
+import { ProjectDetailPage } from './components/ProjectDetailPage';
 import { Footer } from './components/Footer';
-import { ProjectModal } from './components/ProjectModal';
 import { CommandPalette } from './components/CommandPalette';
 import { Loader } from './components/Loader';
 import { MusicToggle } from './components/MusicToggle';
 import type { Project } from './types';
-import { PROJECTS } from './data/portfolioData';
+import { PROJECTS, EXPERIMENT_PROJECTS } from './data/portfolioData';
 import { setSoundEnabled, playTapSound } from './utils/sound';
 import { startMusic, stopMusic } from './utils/music';
-import { initSmoothScroll, stopScroll, startScroll } from './utils/smoothScroll';
+import { initSmoothScroll, stopScroll, startScroll, scrollToTop } from './utils/smoothScroll';
 
 type Theme = 'light' | 'dark' | 'warm';
-
-// Which nav link lights up for each section
-const NAV_FOR_SECTION: Record<string, string> = {
-  home: 'home',
-  intro: 'home',
-  work: 'work',
-  experience: 'work',
-  experiments: 'work',
-  archive: 'work',
-  about: 'about',
-};
+type Page = 'home' | 'work' | 'about';
 
 const nextTheme = (prev: Theme): Theme => (prev === 'light' ? 'dark' : prev === 'dark' ? 'warm' : 'light');
 
 export function App() {
   const [isLoading, setIsLoading] = useState(true);
-  const [activeSection, setActiveSection] = useState('home');
+  const [currentPage, setCurrentPage] = useState<Page>('home');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState(false);
   const [isSoundOn, setIsSoundOn] = useState(true);
   const [isMusicOn, setIsMusicOn] = useState(false);
-  const [theme, setTheme] = useState<Theme>('light');
+  const [theme, setTheme] = useState<Theme>('dark');
 
   // Lenis smooth scrolling; frozen while the loader is on screen
   useEffect(() => {
@@ -89,36 +77,37 @@ export function App() {
     setIsMusicOn(!isMusicOn);
   };
 
-  // Scroll spy for the navbar
-  useEffect(() => {
-    const ids = Object.keys(NAV_FOR_SECTION);
-    const handleScroll = () => {
-      const probe = window.scrollY + window.innerHeight * 0.35;
-      let current = 'home';
-      for (const id of ids) {
-        const el = document.getElementById(id);
-        if (el && probe >= el.offsetTop) current = id;
-      }
-      setActiveSection(NAV_FOR_SECTION[current]);
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  const handleSelectPage = (page: string) => {
+    if (page === 'home' || page === 'work' || page === 'about') {
+      setSelectedProject(null);
+      setCurrentPage(page as Page);
+      scrollToTop(true);
+    }
+  };
+
+  const handleSelectProject = (project: Project) => {
+    setSelectedProject(project);
+    scrollToTop(true);
+  };
 
   const handleOpenProjectById = (projectId: string) => {
-    const found = PROJECTS.find((p) => p.id === projectId);
-    if (found) setSelectedProject(found);
+    const found = [...PROJECTS, ...EXPERIMENT_PROJECTS].find((p) => p.id === projectId);
+    if (found) {
+      handleSelectProject(found);
+    }
   };
 
   const openPalette = useCallback(() => setIsCommandPaletteOpen(true), []);
   const closePalette = useCallback(() => setIsCommandPaletteOpen(false), []);
 
   return (
-    <div className="min-h-screen bg-[var(--bg-primary)] text-[var(--text-primary)] transition-colors duration-300 relative selection:bg-indigo-500 selection:text-white">
+    <div className={`min-h-screen ${selectedProject || currentPage === 'about' ? 'bg-white text-slate-900' : 'bg-[var(--bg-primary)] text-[var(--text-primary)]'} transition-colors duration-300 relative selection:bg-indigo-500 selection:text-white`}>
       {isLoading && <Loader onReveal={handleLoaderReveal} onDone={handleLoaderDone} />}
 
       <Navbar
-        activeSection={activeSection}
+        currentPage={selectedProject ? '' : currentPage}
+        isProjectView={Boolean(selectedProject)}
+        onSelectPage={handleSelectPage}
         onOpenCommandPalette={openPalette}
         isSoundOn={isSoundOn}
         onToggleSound={handleToggleSound}
@@ -127,26 +116,50 @@ export function App() {
       />
 
       <main>
-        <Hero
-          isMusicOn={isMusicOn}
-          onToggleMusic={handleToggleMusic}
-          onCycleTheme={() => setTheme(nextTheme)}
-          onOpenCommandPalette={openPalette}
-        />
-        <CompaniesStrip />
-        <IntroSection />
-        <WorkSection onSelectProject={setSelectedProject} />
-        <JourneySection />
-        <ExperimentsSection />
-        <ArchiveSection />
-        <AboutSection />
+        {selectedProject ? (
+          <ProjectDetailPage
+            project={selectedProject}
+            onBack={() => {
+              setSelectedProject(null);
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+          />
+        ) : (
+          <>
+            {currentPage === 'home' && (
+              <>
+                <Hero
+                  isMusicOn={isMusicOn}
+                  onToggleMusic={handleToggleMusic}
+                  onCycleTheme={() => setTheme(nextTheme)}
+                  onOpenCommandPalette={openPalette}
+                />
+                <CompaniesStrip />
+                <IntroSection />
+                <WorkSection onSelectProject={handleSelectProject} />
+                <WhatIDoSection />
+              </>
+            )}
+
+            {currentPage === 'work' && (
+              <div className="pt-24 sm:pt-32">
+                <WorkSection onSelectProject={handleSelectProject} />
+                <WhatIDoSection />
+              </div>
+            )}
+
+            {currentPage === 'about' && (
+              <div className="pt-24 sm:pt-32 bg-white min-h-screen">
+                <AboutSection />
+              </div>
+            )}
+          </>
+        )}
       </main>
 
       <Footer />
 
       <MusicToggle isOn={isMusicOn} onToggle={handleToggleMusic} />
-
-      <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
 
       <CommandPalette
         isOpen={isCommandPaletteOpen}
@@ -161,3 +174,4 @@ export function App() {
 }
 
 export default App;
+

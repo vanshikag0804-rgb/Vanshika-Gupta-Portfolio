@@ -1,6 +1,14 @@
 import React from 'react';
 import { COMPANIES } from '../data/portfolioData';
 
+const getLogoClass = (name: string) => {
+  if (name.includes('Tanzcorp')) return 'company-logo--tanzcorp';
+  if (name.includes('Aavtor')) return 'company-logo--aavtor';
+  if (name.includes('My Hub')) return 'company-logo--myhub';
+  if (name.includes('Tierce')) return 'company-logo--tierce';
+  return '';
+};
+
 // Infinite marquee of the companies I've interned / freelanced at
 export const CompaniesStrip: React.FC = () => {
   // Enough copies to fill wide screens; the track loops at -50%
@@ -8,7 +16,7 @@ export const CompaniesStrip: React.FC = () => {
 
   return (
     <section aria-label="Companies I've worked with" className="companies-strip">
-      <div className="hero-mono text-center text-[var(--text-muted)] mb-6">
+      <div className="companies-strip-title text-center mb-6">
         Companies I've interned &amp; freelanced at
       </div>
       <div className="marquee">
@@ -22,14 +30,7 @@ export const CompaniesStrip: React.FC = () => {
                       <img
                         src={company.logo}
                         alt={company.name}
-                        className="company-logo"
-                        style={
-                          company.name.includes('Tanzcorp')
-                            ? { height: 'clamp(1.6rem, 2.8vw, 2.2rem)' }
-                            : company.name.includes('My Hub')
-                            ? { height: 'clamp(2.4rem, 4.2vw, 3.4rem)' }
-                            : { height: 'clamp(2.5rem, 4.4vw, 3.5rem)' }
-                        }
+                        className={`company-logo ${getLogoClass(company.name)}`}
                       />
                     )}
                     <span className="company-type">{company.type}</span>

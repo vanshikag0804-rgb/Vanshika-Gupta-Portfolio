@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Scratch tools
+ocr_tool
+ocr.swift

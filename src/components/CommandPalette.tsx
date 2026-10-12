@@ -19,8 +19,6 @@ const SECTIONS = [
   { id: 'work', label: 'Work' },
   { id: 'experience', label: 'Experience' },
   { id: 'experiments', label: 'Experiments' },
-  { id: 'archive', label: 'Archive' },
-  { id: 'resume', label: 'Resume' },
   { id: 'about', label: 'About me' },
   { id: 'contact', label: 'Contact' },
 ];
