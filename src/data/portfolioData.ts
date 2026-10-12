@@ -20,7 +20,7 @@ export const PERSONAL_INFO = {
   avatar: '/images/portrait.jpg',
   location: 'India · Remote',
   email: 'vanshikag0804@gmail.com',
-  resumeUrl: '/resume.pdf',
+  resumeUrl: 'https://drive.google.com/file/d/11YQYxJlTeUBdZpAg275t550IkQrqlZ4b/view',
   socials: {
     linkedin: 'https://www.linkedin.com/in/vanshika-gupta-3aa750247/',
     behance: 'https://www.behance.net/guptavanshika',
@@ -35,7 +35,7 @@ export const PROJECTS: Project[] = [
     subtitle: 'Omnichannel Store Management & Shopping Platform',
     tagline: 'Designing the store management and consumer purchasing experience.',
     category: 'Retail & e-commerce',
-    year: '2025',
+    year: '2026',
     role: 'UI/UX DESIGN INTERN',
     duration: '3 Months',
     brandLogo: 'MYHUB',
@@ -53,7 +53,7 @@ export const PROJECTS: Project[] = [
       { label: 'Daily Session Time', value: '18 min' },
     ],
     overview:
-      'Designing a Business Pulse layer for 390k+ merchants across MENA. Turning raw transaction data into plain-language daily insights.',
+      'Redesigning how 50,000+ Indian retailers sell in-store and online from one app. One product record, one stock count, and a Go Live flow that shop owners and chain stores can trust.',
     problem:
       'Merchants were struggling to get verified and track daily cash flows across multiple payment channels with high drop-off rates.',
     solution:

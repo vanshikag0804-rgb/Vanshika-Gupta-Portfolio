@@ -10,8 +10,13 @@ export const ResumeSection: React.FC = () => (
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
         <SectionHeading eyebrow="Resume" title="The one-page version" className="!mb-0" />
         <Reveal className="flex flex-wrap gap-3 md:shrink-0">
-          <a href={PERSONAL_INFO.resumeUrl} download className="panel-button">
-            <Download className="w-4 h-4" /> Download PDF
+          <a
+            href={PERSONAL_INFO.resumeUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="panel-button"
+          >
+            <Download className="w-4 h-4" /> View Resume
           </a>
           <a
             href={PERSONAL_INFO.socials.linkedin}

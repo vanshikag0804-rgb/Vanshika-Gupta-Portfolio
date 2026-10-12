@@ -36,7 +36,9 @@ export const Footer: React.FC = () => {
             {/* CTAs shifted directly below Vanshika Gupta Product Designer section */}
             <div className="mt-6 sm:mt-7 flex flex-wrap items-center gap-3 sm:gap-3.5">
               <a
-                href={`mailto:${PERSONAL_INFO.email}?subject=Hiring%20Opportunity%20-%20Vanshika%20Gupta`}
+                href={PERSONAL_INFO.resumeUrl}
+                target="_blank"
+                rel="noreferrer"
                 className="inline-flex items-center justify-center px-5 sm:px-6 py-2.5 sm:py-3 rounded-full bg-white text-slate-950 font-bold text-sm sm:text-base hover:bg-cyan-300 hover:shadow-[0_0_20px_rgba(34,211,238,0.35)] transition-all transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer shadow-md"
               >
                 Hire Me

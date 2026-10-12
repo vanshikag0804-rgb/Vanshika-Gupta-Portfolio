@@ -1,6 +1,7 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { ArrowDown } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
+import { VGLogo } from './VGLogo';
 
 interface LoaderProps {
   // Fired once the hero is fully revealed (its entrance animation starts)
@@ -327,9 +328,9 @@ export const Loader: React.FC<LoaderProps> = ({ onReveal, onDone }) => {
 
       {/* Small UI around the edges */}
       <div ref={uiRef} className="intro-ui">
-        <div className="absolute left-5 sm:left-8 top-5 lg:top-[42px] flex items-center gap-4">
-          <div className="headshot w-11 h-11 lg:w-[58px] lg:h-[58px]">
-            <img src="/heroimg.png" alt="" className="headshot-img" />
+        <div className="absolute left-5 sm:left-8 top-5 lg:top-[42px] flex items-center gap-3.5 lg:gap-4.5">
+          <div className="w-10 h-10 lg:w-[48px] lg:h-[48px] rounded-xl lg:rounded-2xl overflow-hidden shadow-[0_4px_14px_rgba(0,0,0,0.12)] shrink-0">
+            <VGLogo isLightPage={false} className="w-full h-full" />
           </div>
           <span className="font-bold text-xl lg:text-[30px] tracking-[-0.01em] text-white">
             {PERSONAL_INFO.name}

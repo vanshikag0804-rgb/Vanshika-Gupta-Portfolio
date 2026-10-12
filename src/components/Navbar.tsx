@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Search, MessageCircle, Volume2, VolumeX, Moon, Sun, Flame, Menu, X, Sparkles } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 import { playClickSound, playPopSound } from '../utils/sound';
+import { VGLogo } from './VGLogo';
 
 interface NavbarProps {
   currentPage: string;
@@ -50,6 +51,10 @@ export const Navbar: React.FC<NavbarProps> = ({
     else onChangeTheme('light');
   };
 
+  const isLightPage = Boolean(
+    isProjectView || currentPage === 'about' || theme === 'light' || theme === 'warm'
+  );
+
   return (
     <header className="absolute top-0 left-0 right-0 z-50 pt-5 lg:pt-[42px]">
       <div className="px-5 sm:px-8 lg:px-[1.8vw] flex items-center justify-between">
@@ -59,17 +64,13 @@ export const Navbar: React.FC<NavbarProps> = ({
             playPopSound();
             onSelectPage('home');
           }}
-          className="flex items-center gap-4 lg:gap-5 group text-left cursor-pointer"
+          className="flex items-center gap-3.5 lg:gap-4.5 group text-left cursor-pointer"
         >
-          <div className="headshot w-11 h-11 lg:w-[58px] lg:h-[58px] shadow-[0_4px_14px_rgba(0,0,0,0.12)]">
-            <img
-              src="/heroimg.png"
-              alt={PERSONAL_INFO.name}
-              className="headshot-img group-hover:scale-110 transition-transform duration-500"
-            />
+          <div className="w-10 h-10 lg:w-[48px] lg:h-[48px] rounded-xl lg:rounded-2xl overflow-hidden shadow-[0_4px_14px_rgba(0,0,0,0.12)] group-hover:scale-105 transition-transform duration-300 shrink-0">
+            <VGLogo isLightPage={isLightPage} className="w-full h-full" />
           </div>
           <span className={`font-bold text-xl lg:text-[30px] tracking-[-0.01em] transition-colors ${
-            isProjectView || currentPage === 'about' || theme === 'light' ? 'text-black' : 'text-white'
+            isLightPage ? 'text-black' : 'text-white'
           }`}>
             {PERSONAL_INFO.name}
           </span>

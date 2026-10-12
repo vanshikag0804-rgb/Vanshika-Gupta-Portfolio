@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://vanshikaguptafolio.vercel.app/sitemap.xml
