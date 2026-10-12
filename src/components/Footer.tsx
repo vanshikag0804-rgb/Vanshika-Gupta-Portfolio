@@ -2,6 +2,7 @@ import React from 'react';
 import { ArrowUp } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 import { scrollToTarget } from '../utils/smoothScroll';
+import { VGLogo } from './VGLogo';
 
 // Footer: compact dark mode layout with avatar, email, social links, resume, copyright
 export const Footer: React.FC = () => {
@@ -14,15 +15,8 @@ export const Footer: React.FC = () => {
         <div className="grid md:grid-cols-[1.4fr_1fr_1fr] gap-10 sm:gap-12">
           <div>
             <div className="flex items-center gap-4">
-              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full overflow-hidden bg-white/10 border border-white/20 shrink-0 shadow-md">
-                <img
-                  src={PERSONAL_INFO.avatar}
-                  onError={(e) => {
-                    if (!e.currentTarget.src.endsWith('/images/portrait.jpg')) e.currentTarget.src = '/images/portrait.jpg';
-                  }}
-                  alt={PERSONAL_INFO.name}
-                  className="w-full h-full object-cover object-top"
-                />
+              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl overflow-hidden shrink-0 shadow-md">
+                <VGLogo isLightPage={false} className="w-full h-full" />
               </div>
               <div>
                 <div className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">{PERSONAL_INFO.name}</div>
