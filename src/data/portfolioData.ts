@@ -45,7 +45,7 @@ export const PROJECTS: Project[] = [
     bannerGradient: 'from-[#0A192F] via-[#0F2942] to-[#051329]',
     coverImage: '/images/projects/paymob-cover.jpg',
     coverImageAlt: 'MYHub Retail mobile app mockups displaying store inventory, point of sale catalog, and incoming customer orders on smartphones',
-    caseStudyImage: '',
+    caseStudyImage: '/images/projects/paymob-cover.jpg',
     caseStudyImageAlt: 'MYHub Retail omnichannel retail management case study presentation displaying mobile interface flows',
     fullCover: true,
     mockupType: 'paymob',
