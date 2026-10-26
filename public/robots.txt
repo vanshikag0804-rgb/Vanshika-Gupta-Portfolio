@@ -1,4 +1,22 @@
+# Allow all general web crawlers
 User-agent: *
 Allow: /
 
+# Google Search Engine Crawler
+User-agent: Googlebot
+Allow: /
+
+# OpenAI ChatGPT AI Crawler
+User-agent: GPTBot
+Allow: /
+
+# Anthropic Claude AI Crawler
+User-agent: ClaudeBot
+Allow: /
+
+# Perplexity AI Search Crawler
+User-agent: PerplexityBot
+Allow: /
+
+# XML Sitemap
 Sitemap: https://vanshikaguptafolio.vercel.app/sitemap.xml

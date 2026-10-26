@@ -36,7 +36,7 @@ export const PROJECTS: Project[] = [
     tagline: 'Designing the store management and consumer purchasing experience.',
     category: 'Retail & e-commerce',
     year: '2026',
-    role: 'UI/UX DESIGN INTERN',
+    role: 'UI-UX DESIGN INTERN',
     duration: '3 Months',
     brandLogo: 'MYHUB',
     bannerBadge: '• FEATURED · CASE 01',
@@ -64,15 +64,77 @@ export const PROJECTS: Project[] = [
     accentColor: '#0052FF',
     gradient: 'from-blue-600/20 via-indigo-600/10 to-blue-800/20',
     featured: true,
-    figmaUrl: 'https://www.figma.com/',
-    behanceUrl: 'https://www.behance.net/',
-    demoUrl: 'https://example.com/',
+    figmaUrl: 'https://www.figma.com/design/lk3W0nDPo7NQKcXWpFOYfy/Portofolio--Vanshika-Gupta?node-id=588-14492&t=hpULZQogxNMX1SjE-1',
+    behanceUrl: 'https://www.behance.net/guptavanshika',
+    demoUrl: 'https://play.google.com/store/apps/details?id=com.myhub.vendor&hl=en_IN',
     deliverables: [
       'KYC Onboarding Architecture',
       'Merchant Analytics Dashboard',
       'Payment Gateway UI Kit',
       'Usability Testing Reports',
     ],
+    caseStudy: {
+      eyebrow: 'Retail · iOS & Android · Shipped',
+      headline: 'Redesigning how 50,000+ Indian retailers sell in-store and online from one app.',
+      captionLeft: 'MYHub Retail · In-Store POS & Online App',
+      badgeLeft: '● 50,000+ Retailers',
+      role: 'UI-UX Design Intern',
+      timeline: '10 weeks, 2026',
+      platform: 'iOS & Android',
+      status: 'Live',
+      problem:
+        'Retailers ran one business across disconnected tools for products, stock, billing and online orders. Stock went wrong between the counter and online, and going online felt like a risk because nobody could tell what was missing.',
+      audience: [
+        'Independent owners running a single store',
+        'Vendors managing a chain of stores',
+        'Sub-vendors running one store inside that chain',
+      ],
+      whatIDid:
+        'In-store research with retailers, then a redesign around how a store actually runs. I took it from research through to dev handoff, and it shipped in 10 weeks.',
+      keyDecisions: [
+        {
+          title: 'Go Live readiness checklist:',
+          description:
+            'Owners see what’s ready, what’s blocking and what to fix next, instead of pressing a single toggle on faith.',
+        },
+        {
+          title: 'One product, sellable everywhere:',
+          description:
+            'A single record and a single stock count, so a counter sale and an online order update the same number.',
+        },
+        {
+          title: 'Offline-first billing:',
+          description:
+            'Bills close without internet and sync later, with clear sync states and conflict handling.',
+        },
+        {
+          title: 'Chain store lifecycle:',
+          description:
+            'Create → Pending → Assign Sub-vendor → Active, with clear Vendor and Sub-vendor permissions.',
+        },
+      ],
+      outcome: 'Shipped to 50,000+ retailers on iOS and Android with a 42% increase in store onboarding completion.',
+      links: [
+        {
+          label: 'Behance',
+          title: 'Full case study',
+          description: 'Process, research and decisions',
+          url: 'https://www.behance.net/guptavanshika',
+        },
+        {
+          label: 'Figma',
+          title: 'Detailed UI',
+          description: 'Screens, components and design system',
+          url: 'https://www.figma.com/design/lk3W0nDPo7NQKcXWpFOYfy/Portofolio--Vanshika-Gupta?node-id=588-14492&t=hpULZQogxNMX1SjE-1',
+        },
+        {
+          label: 'Play Store',
+          title: 'Live app',
+          description: 'Download and try it',
+          url: 'https://play.google.com/store/apps/details?id=com.myhub.vendor&hl=en_IN',
+        },
+      ],
+    },
   },
   {
     id: 'aavtor-ai',
@@ -81,7 +143,7 @@ export const PROJECTS: Project[] = [
     tagline: 'Designing the 0 → 1 conversational agent for booking local services & jobs',
     category: 'AI & ML',
     year: '2026',
-    role: 'PRODUCT DESIGNER',
+    role: 'PRODUCT DESIGNER (FREELANCE)',
     duration: 'Freelance',
     brandLogo: 'aavtor.ai',
     bannerBadge: '• FEATURED · CASE 02',
@@ -100,7 +162,7 @@ export const PROJECTS: Project[] = [
       { label: 'Daily Session Time', value: '12 min' },
     ],
     overview:
-      'Designing the core product experience for an AI startup from zero to shipped UI. Turning complex queries into instant local service matches.',
+      'Designing the 0 → 1 conversational AI agent that turns vague everyday requests into verified local service bookings in under 10 seconds, cutting search time by 90%.',
     problem:
       'Finding verified local services and jobs required browsing through multiple cluttered search portals with fragmented communication.',
     solution:
@@ -109,15 +171,70 @@ export const PROJECTS: Project[] = [
     accentColor: '#3B82F6',
     gradient: 'from-blue-600/20 via-indigo-600/10 to-blue-800/20',
     featured: true,
-    figmaUrl: 'https://www.figma.com/',
-    behanceUrl: 'https://www.behance.net/',
-    demoUrl: 'https://example.com/',
+    figmaUrl: 'https://www.figma.com/design/lk3W0nDPo7NQKcXWpFOYfy/Portofolio--Vanshika-Gupta?node-id=40-36&t=hpULZQogxNMX1SjE-1',
+    behanceUrl: 'https://www.behance.net/guptavanshika',
     deliverables: [
       'Conversational AI Flows',
       'Local Services Architecture',
       'Mobile App UI Kit',
       'Interactive Prototypes',
     ],
+    caseStudy: {
+      eyebrow: 'AI & ML · Mobile & Web · 0 → 1 Launch',
+      headline: 'Designing a 0 → 1 conversational AI agent that turns vague everyday requests into verified local service bookings.',
+      captionLeft: 'Aavtor.ai · AI Conversational Assistant & Booking Flow',
+      badgeLeft: '● 0 → 1 Shipped Product',
+      role: 'Product Designer (Freelance)',
+      timeline: '12 weeks, 2026',
+      platform: 'Mobile App & Web',
+      status: 'Live Beta',
+      problem:
+        'Finding trusted local services (plumbers, electricians, cleaners) traditionally forces users through cluttered directory forms, multiple phone calls, and manual quote comparison. Most users abandoned before booking because pricing and availability were opaque.',
+      audience: [
+        'Homeowners & renters needing immediate local help without endless search filters',
+        'Independent service professionals who need clear job scopes without answering repetitive calls',
+        'Gig workers seeking verified, fair-paying local jobs in real time',
+      ],
+      whatIDid:
+        'Defined task-based UX architecture for AI-assisted service discovery. Designed core experiences including AI Assistant, Active Tasks, Business Matching, Chat, Human Takeover, transparent quote comparisons, and seamless booking checkout.',
+      keyDecisions: [
+        {
+          title: 'Context-Aware Prompt Suggestions:',
+          description:
+            'Rather than an empty chat bar, dynamic query chips guide users through scope (e.g. "Pipe leak under sink" vs "Full bathroom fitting") to extract structured job details in one prompt.',
+        },
+        {
+          title: 'Structured Interactive Message Cards:',
+          description:
+            'Turned raw LLM text into rich interactive cards (date picker, price breakdown, provider credentials) right inside the chat feed so users never context-switch.',
+        },
+        {
+          title: 'Transparent 3-Tier Quote Comparison:',
+          description:
+            'Side-by-side quote cards displaying verified reviews, estimated arrival times, and transparent pricing with one-tap confirmation.',
+        },
+        {
+          title: 'Dual High-Contrast Theme System:',
+          description:
+            'Created an accessible, high-contrast dark and light mode with WCAG AAA token ramps tailored for outdoor and low-light mobile usage.',
+        },
+      ],
+      outcome: 'Reduced average booking discovery time from 12 minutes to under 45 seconds, achieving a 45% lift in booking conversion rate during beta trials.',
+      links: [
+        {
+          label: 'Behance',
+          title: 'Full case study',
+          description: '0 → 1 design process, UX research, and conversational design flows',
+          url: 'https://www.behance.net/guptavanshika',
+        },
+        {
+          label: 'Figma',
+          title: 'Component Library',
+          description: 'Conversational UI components, chat states, and mobile design system',
+          url: 'https://www.figma.com/design/lk3W0nDPo7NQKcXWpFOYfy/Portofolio--Vanshika-Gupta?node-id=40-36&t=hpULZQogxNMX1SjE-1',
+        },
+      ],
+    },
   },
 ];
 
@@ -147,7 +264,7 @@ export const EXPERIMENT_PROJECTS: Project[] = [
       { label: 'Build Time', value: '2 Days' },
     ],
     overview:
-      'An interactive sandbox exploring how AI coding tools accelerate component documentation, token validation, and theme switching in real time.',
+      'Building an enterprise token architecture and 45+ accessible Figma components synced with Storybook to eliminate UI inconsistencies and halve feature design time.',
     problem:
       'Designing components in isolation often leads to missing edge cases in dark modes and responsive breakpoints.',
     solution:
@@ -156,10 +273,58 @@ export const EXPERIMENT_PROJECTS: Project[] = [
     accentColor: '#EA580C',
     gradient: 'from-orange-500/20 to-amber-500/20',
     featured: true,
-    figmaUrl: 'https://www.figma.com/',
-    behanceUrl: 'https://www.behance.net/',
-    demoUrl: 'https://example.com/',
+    figmaUrl: 'https://www.figma.com/design/2WMSERRebQtw86KrKE3rfJ/Myhub-Retailer-%E2%80%94-Design-System?node-id=4-43993&t=pqlK5Sn5venrDWsb-1',
     deliverables: ['Interactive Sandbox', 'Component Spec Sheet', 'Theme Tokens'],
+    caseStudy: {
+      eyebrow: 'Design Systems · Figma Variables & React · Production',
+      headline: 'Unifying cross-platform retail interfaces with tokenized variables, accessible states, and live Storybook documentation.',
+      captionLeft: 'Design System · Figma Tokens & Storybook Component Workshop',
+      badgeLeft: '● 45+ Production Components',
+      role: 'Design Systems Designer',
+      timeline: '6 weeks, 2026',
+      platform: 'Figma & React Web',
+      status: 'In Production',
+      problem:
+        'Rapid feature expansion across in-store POS, merchant web dashboards, and mobile checkout led to duplicate components, mismatched padding scales, and accessibility regressions across development teams.',
+      audience: [
+        'Product designers needing standardized components with auto-layout and variant properties',
+        'Frontend engineers building responsive retail flows with token-driven CSS and React',
+        'QA & Accessibility teams auditing contrast compliance (WCAG 2.1 AA/AAA)',
+      ],
+      whatIDid:
+        'Audited 100+ screens to identify redundancies, then engineered a multi-tiered token architecture (global, semantic, component). Built and published 45+ core Figma components with responsive variants, boolean toggles, and integrated Storybook specs.',
+      keyDecisions: [
+        {
+          title: 'Semantic Token Hierarchy:',
+          description:
+            'Decoupled raw values from semantic usage (--color-surface-elevated rather than #ffffff) to enable instant dark mode and brand theming with zero code rewrites.',
+        },
+        {
+          title: 'Interactive Variant States:',
+          description:
+            'Structured components with exhaustive states (Default, Hover, Active, Focus-Visible, Disabled, Loading, Error) to prevent edge-case bugs in production.',
+        },
+        {
+          title: 'Density Modes for POS & Mobile:',
+          description:
+            'Built compact touch targets for barcode-scanner handhelds and generous tap targets for consumer mobile screens within the same component set.',
+        },
+        {
+          title: 'Figma to Code Automated Spec Sheet:',
+          description:
+            'Documented prop tables, accessibility guidelines, and do\'s/don\'ts directly in Figma and Storybook, shortening developer handoff time by 50%.',
+        },
+      ],
+      outcome: 'Adopted across 4 product modules at My Hub, cutting new screen turnaround time from 4 days to under 48 hours while achieving 100% WCAG AA compliance.',
+      links: [
+        {
+          label: 'Figma',
+          title: 'Figma Community Kit',
+          description: 'Explore live variants, variables, and auto-layout setup',
+          url: 'https://www.figma.com/design/2WMSERRebQtw86KrKE3rfJ/Myhub-Retailer-%E2%80%94-Design-System?node-id=4-43993&t=pqlK5Sn5venrDWsb-1',
+        },
+      ],
+    },
   },
   {
     id: 'ai-tokens-exp',
@@ -186,7 +351,7 @@ export const EXPERIMENT_PROJECTS: Project[] = [
       { label: 'WCAG AAA Compliance', value: '100%' },
     ],
     overview:
-      'Pushing the limits of generative AI models to generate mathematical type scales, contrast-safe palette pairs, and spring token curves.',
+      'An experimental generative token engine leveraging LLMs and OKLCH color space math to mathematically generate contrast-verified color ramps and harmonic type scales in seconds.',
     problem:
       'Manual color ramp calculation and WCAG AA contrast verification takes hours of monotonous spreadsheet math.',
     solution:
@@ -195,17 +360,66 @@ export const EXPERIMENT_PROJECTS: Project[] = [
     accentColor: '#0891B2',
     gradient: 'from-cyan-500/20 to-blue-500/20',
     featured: true,
-    figmaUrl: 'https://www.figma.com/',
-    behanceUrl: 'https://www.behance.net/',
-    demoUrl: 'https://example.com/',
+    demoUrl: 'https://storybookvanshika.vercel.app/',
     deliverables: ['Generative Prompt Chains', 'Figma Tokens Plugin', 'Documentation'],
+    caseStudy: {
+      eyebrow: 'Experiments · Generative AI & Tokens · Research Lab',
+      headline: 'Exploring generative AI prompt engines to automatically synthesize mathematical design tokens and contrast-verified color ramps.',
+      captionLeft: 'AI Tokens · Generative Design Scale & Style Engine',
+      badgeLeft: '● Experimental Research',
+      role: 'AI UX Researcher & Technologist',
+      timeline: '3 weeks, 2025',
+      platform: 'Web Sandbox & Figma Plugin',
+      status: 'Research Prototype',
+      problem:
+        'Building design token scales manually requires hours of repetitive spreadsheet math, gamut calculations, and manual contrast ratio verification for dark and light theme pairings.',
+      audience: [
+        'Design systems architects setting up new multi-brand token repositories',
+        'Developers needing instant, accessible CSS custom properties from a single brand hex code',
+        'Designers experimenting with procedural type scales and easing curves',
+      ],
+      whatIDid:
+        'Designed prompt chains and an interactive web sandbox where designers input a single brand color and desired mood, and the AI engine generates mathematically harmonic ramps, checks APCA & WCAG contrast, and outputs clean tokens.',
+      keyDecisions: [
+        {
+          title: 'Algorithmic Guardrails over Hallucination:',
+          description:
+            'Paired LLM output with deterministic OKLCH color space math to ensure contrast validity and uniform perceptual lightness across hues.',
+        },
+        {
+          title: 'Instant Token Format Export:',
+          description:
+            'Generated drop-in exports for Figma Variables (JSON), Style Dictionary, Tailwind config, and CSS custom properties in one click.',
+        },
+        {
+          title: 'Visual Comparison Matrix:',
+          description:
+            'Built an interactive modal testing panel previewing real UI buttons, alerts, and inputs in real time under synthesized lighting conditions.',
+        },
+        {
+          title: 'Spring Physics Curves Preview:',
+          description:
+            'Allowed natural language generation of micro-interaction easing tokens with live interactive physics demonstrations.',
+        },
+      ],
+      outcome: 'Generated 180+ WCAG AAA compliant tokens in seconds, reducing initial token setup time from days to minutes with zero contrast calculation errors.',
+      links: [
+        {
+          label: 'Live Storybook',
+          title: 'Interactive Component Workshop',
+          description: 'Explore live UI components, variants, and interactive documentation',
+          url: 'https://storybookvanshika.vercel.app/',
+        },
+      ],
+    },
   },
 ];
 
 export const COMPANIES: Company[] = [
-  { name: 'Aavtor AI', type: 'Freelance', logo: '/images/logos/aavtor.png' },
-  { name: 'My Hub Retail', type: 'Internship', logo: '/images/logos/myhub.png' },
   { name: 'Tanzcorp', type: 'Internship', logo: '/images/logos/tanzcorp.png' },
+  { name: 'My Hub Technologies', type: 'Internship', logo: '/images/logos/myhub.png' },
+  { name: 'Aavtor.AI', type: 'Freelance', logo: '/images/logos/aavtor.png' },
+  { name: 'Tierce', type: 'Internship', logo: '/images/logos/tierce.jpg' },
 ];
 
 export const INTRO = {
@@ -260,57 +474,64 @@ export const SERVICES: Service[] = [
 // TODO: real roles, dates and highlights
 export const EXPERIENCE: ExperienceItem[] = [
   {
+    id: 'tanzcorp',
+    company: 'Tanzcorp',
+    role: 'UI-UX Design Intern',
+    type: 'Internship',
+    location: 'India',
+    period: 'September 2026 — Present',
+    description: 'Dudestrap — Event and Customised Seller platform',
+    highlights: [
+      'Designing event and customised seller platform experiences on Dudestrap.',
+      'Building design system tokens and component specs for engineering handoff.',
+    ],
+    skills: ['Event Platform', 'Customised Seller UX', 'Design System Tokens', 'Dashboards'],
+  },
+  {
+    id: 'myhub',
+    company: 'My Hub Technologies',
+    role: 'UI-UX Design Intern',
+    type: 'Internship',
+    location: 'India',
+    period: 'June 2026 — September 2026',
+    description: 'Multi Sided Platform — My Hub',
+    highlights: [
+      'Redesigned a live retail app for 50,000+ retailers; research to shipped MVP in 10 weeks.',
+      'Led UX research, IA, user flows, wireframes, prototyping, UI design, and usability testing across the product lifecycle.',
+      'Designed differentiated experiences including Go Live, unified product inventory management, omni channel selling, and scalable store operations.',
+      'Delivered developer handoffs with interaction states, and implementation guidelines for seamless product development.',
+    ],
+    skills: ['Retail App', 'Omnichannel Selling', 'Store Operations', 'Usability Testing', 'Figma Tokens'],
+  },
+  {
+    id: 'aavtor',
+    company: 'Aavtor.AI',
+    role: 'Product Designer- Freelance',
+    type: 'Freelance',
+    location: 'Remote',
+    period: 'October 2025 — June 2026',
+    description: 'Aavtor.AI — Conversational AI Agent & Local Services Platform',
+    highlights: [
+      'Defined task-based UX architecture for AI-assisted service discovery.',
+      'Designed core experiences including AI Assistant, Active Tasks, Business Matching, Chat, Human Takeover, and task states.',
+      'Used competitor analysis, journey mapping, marketplace research, and AI product benchmarking to identify key UX opportunities.',
+      'Iterated from traditional search/results patterns towards intent-driven, contextual matching and AI execution.',
+    ],
+    skills: ['Conversational AI', 'AI Assistant', 'Task Architecture', '0 → 1 Product'],
+  },
+  {
     id: 'tierce',
-    company: 'Tierce India Pvt Ltd',
+    company: 'Tierce',
     role: 'UI Design Intern',
     type: 'Internship',
     location: 'India',
     period: 'March 2025 — June 2025',
-    description: 'Designed dashboard screens and web landing pages with reusable UI kits.',
-    highlights: ['Designed dashboard screens and landing pages', 'Built reusable UI kit in Figma'],
-    skills: ['Dashboards', 'Landing pages', 'Figma'],
-  },
-  {
-    id: 'aavtor',
-    company: 'Aavtor AI',
-    role: 'Product Design Intern',
-    type: 'Freelance',
-    location: 'Remote',
-    period: 'August 2025 — March 2026',
-    description: 'Designing the core product experience for an AI startup, from first flows to a shippable UI.',
+    description: 'Visa Consultancy CRM — Aarya Overseas Education',
     highlights: [
-      'Crafted 0 → 1 conversational AI flows and interface components',
-      'Architected high-contrast UI modes and WCAG AAA color ramps',
+      'Redesigned a multi-tenant CRM SaaS platform for visa consultancies, restructuring the end-to-end flow from enquiry to application completion.',
+      'Audited the existing product to find usability gaps, fragmented workflows, and inconsistent UI patterns across roles.',
     ],
-    skills: ['0 → 1', 'AI UX', 'Design system'],
-  },
-  {
-    id: 'myhub',
-    company: 'My Hub',
-    role: 'UX Designer Intern',
-    type: 'Internship',
-    location: 'India',
-    period: 'June 2026 — September 2026',
-    description: 'Worked on omnichannel store-management and purchasing user journeys.',
-    highlights: [
-      'Redesigned store management and purchasing flows',
-      'Ran usability testing sessions and built Figma token libraries',
-    ],
-    skills: ['E-commerce', 'Usability testing', 'Figma Tokens'],
-  },
-  {
-    id: 'tanzcorp',
-    company: 'Tanzcorp',
-    role: 'UX Design Intern',
-    type: 'Internship',
-    location: 'India',
-    period: 'September 2026 — Present',
-    description: 'Designing enterprise UX dashboards, interactive prototypes, and design system tokens.',
-    highlights: [
-      'Designing enterprise UX dashboards and interactive prototypes',
-      'Building design system tokens and component specs for engineering handoff',
-    ],
-    skills: ['Enterprise UX', 'Prototypes', 'Design System Tokens'],
+    skills: ['CRM SaaS', 'Enterprise Dashboards', 'Figma UI Kit', 'Usability Audit'],
   },
 ];
 
@@ -321,7 +542,7 @@ export const EXPERIMENTS: Experiment[] = [
     kicker: 'Vibe-coded',
     desc: 'A living Storybook of my UI components, built by pairing with AI coding tools. Every component is documented, interactive and themeable.',
     tags: ['React', 'Storybook', 'AI pair-coding'],
-    link: '#', // TODO
+    link: 'https://storybookvanshika.vercel.app/',
     visual: 'storybook',
   },
   {
@@ -339,10 +560,10 @@ export const EXPERIMENTS: Experiment[] = [
 export const ARCHIVE: ArchiveItem[] = [
   { year: '2025', title: 'SaaS product landing page', type: 'Landing page', platform: 'Live', url: '#' },
   { year: '2025', title: 'AI assistant onboarding', type: 'Figma exploration', platform: 'Figma', url: '#' },
-  { year: '2025', title: 'Retail app redesign', type: 'Case study', platform: 'Behance', url: '#' },
+  { year: '2025', title: 'Retail app redesign', type: 'Case study', platform: 'Behance', url: 'https://www.behance.net/guptavanshika' },
   { year: '2024', title: 'Fintech dashboard concept', type: 'Figma exploration', platform: 'Figma', url: '#' },
   { year: '2024', title: 'Agency landing page', type: 'Landing page', platform: 'Live', url: '#' },
-  { year: '2024', title: 'Poster & visual series', type: 'Visual design', platform: 'Behance', url: '#' },
+  { year: '2024', title: 'Poster & visual series', type: 'Visual design', platform: 'Behance', url: 'https://www.behance.net/guptavanshika' },
 ];
 
 // TODO: your education

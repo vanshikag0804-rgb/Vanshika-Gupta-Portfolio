@@ -15,6 +15,8 @@ export interface HoverStackCard {
   date?: string;
   title?: string;
   subtitle?: string;
+  company?: string;
+  role?: string;
   location?: string;
   gradient?: string;
   iconText?: string;
@@ -151,7 +153,7 @@ function InnerCardContent({ card }: { card: HoverStackCard; index?: number }) {
   return (
     <div className="w-full h-full flex flex-col text-left text-slate-900 font-sans select-none overflow-hidden">
       {/* Header matching reference */}
-      <div className="p-5 sm:p-6 pb-4 sm:pb-5 border-b border-slate-100 flex items-start justify-between gap-3">
+      <div className="p-4 sm:p-5 pb-3 sm:pb-4 border-b border-slate-100 flex items-start justify-between gap-3">
         <div className="flex items-center gap-3 min-w-0">
           {/* Stamp Icon */}
           <div className="p-0.5 bg-white rounded-lg shadow-xs border border-slate-200 shrink-0">
@@ -159,7 +161,7 @@ function InnerCardContent({ card }: { card: HoverStackCard; index?: number }) {
               {card.logoUrl ? (
                 <img
                   src={card.logoUrl}
-                  alt={card.logoAlt || `${card.subtitle ? card.subtitle.split('·')[0].trim() : 'Company'} logo`}
+                  alt={card.logoAlt || `${card.company || (card.subtitle ? card.subtitle.split('·')[0].trim() : 'Company')} logo`}
                   className="w-full h-full object-contain p-1 bg-white"
                 />
               ) : (
@@ -168,31 +170,41 @@ function InnerCardContent({ card }: { card: HoverStackCard; index?: number }) {
             </div>
           </div>
           <div className="min-w-0">
-            <h4 className="text-base sm:text-[1.05rem] font-bold text-slate-900 tracking-tight leading-snug truncate">
-              {card.title || "UI / UX Design Intern"}
+            <h4 className="text-[15px] sm:text-base font-extrabold text-slate-900 tracking-tight leading-snug truncate">
+              {card.company || card.title || "UI / UX Design Intern"}
             </h4>
-            <p className="text-xs sm:text-sm font-normal text-slate-500 truncate mt-0.5">
-              {card.subtitle || "Gida Technologies"}
-            </p>
+            <div className="flex items-center gap-1.5 flex-wrap mt-0.5">
+              <span className="text-xs sm:text-[13px] font-semibold text-blue-600 truncate">
+                {card.company ? card.role || card.title : card.subtitle || "Gida Technologies"}
+              </span>
+              {card.company && card.subtitle && (
+                <>
+                  <span className="text-slate-300 text-xs">·</span>
+                  <span className="text-[11px] sm:text-xs font-normal text-slate-500 truncate">
+                    {card.subtitle}
+                  </span>
+                </>
+              )}
+            </div>
           </div>
         </div>
 
         {/* Location Pin */}
         {card.location && (
-          <div className="flex items-center gap-1 text-slate-600 text-xs sm:text-[13px] font-normal shrink-0 pt-0.5">
-            <MapPin className="w-3.5 h-3.5 text-slate-600 fill-slate-400/20" />
+          <div className="flex items-center gap-1 text-slate-500 text-xs sm:text-[12px] font-normal shrink-0 pt-0.5">
+            <MapPin className="w-3.5 h-3.5 text-slate-400 fill-slate-300/20" />
             <span className="truncate">{card.location}</span>
           </div>
         )}
       </div>
 
       {/* Bullets List */}
-      <div className="p-5 sm:p-6 pt-4 sm:pt-5 flex-1 overflow-hidden">
+      <div className="p-4 sm:p-5 pt-3 sm:pt-4 flex-1 overflow-y-auto no-scrollbar">
         {card.bullets && card.bullets.length > 0 ? (
-          <ul className="space-y-3.5 text-slate-700 text-xs sm:text-[0.925rem] leading-[1.6]">
+          <ul className="space-y-2.5 sm:space-y-3 text-slate-700 text-xs sm:text-[12.5px] leading-[1.5]">
             {card.bullets.map((bullet, bIdx) => (
-              <li key={bIdx} className="flex items-start gap-2.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#1E293B] mt-2 shrink-0" />
+              <li key={bIdx} className="flex items-start gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-slate-800 mt-1.5 shrink-0" />
                 <RenderBulletText text={bullet.text} boldWords={bullet.boldWords} />
               </li>
             ))}
@@ -265,7 +277,7 @@ export function HoverStack({
         ...card,
         _rotation: presetRotation * rotationScale,
         _baseX: baseX,
-        _baseZ: index + 1,
+        _baseZ: cards.length - index,
       };
     });
   }, [cards, overlap, rotation]);

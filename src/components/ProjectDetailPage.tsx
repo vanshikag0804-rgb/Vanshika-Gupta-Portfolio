@@ -14,7 +14,7 @@ export const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ project, o
     scrollToTop(true);
   }, []);
 
-  const isMyHub = project.id === 'paymob' || project.title.toLowerCase().includes('myhub');
+  const caseStudy = project.caseStudy;
 
   return (
     <div className="bg-white text-slate-900 min-h-screen">
@@ -29,25 +29,26 @@ export const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ project, o
           </button>
         </Reveal>
 
-        {isMyHub ? (
-          /* ---------- MyHub Retail: Side-by-Side One-Page Project Summary ---------- */
+        {caseStudy ? (
+          /* ---------- Structured One-Page Case Study Summary Layout ---------- */
           <div className="grid lg:grid-cols-[1.02fr_1.18fr] gap-8 lg:gap-14 items-start">
             {/* Left Column: Banner Image Container */}
             <div className="lg:sticky lg:top-28">
               <Reveal>
                 <div className="w-full rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border border-slate-200 bg-[#00183c]">
                   <img
-                    src={project.coverImage || '/images/projects/paymob-cover.jpg'}
+                    src={project.coverImage || project.caseStudyImage || '/images/projects/paymob-cover.jpg'}
                     alt={
                       project.coverImageAlt ||
-                      'MYHub Retail mobile app mockups displaying store inventory, point of sale catalog, and incoming customer orders on smartphones'
+                      project.caseStudyImageAlt ||
+                      `${project.title} case study design presentation and UI screens`
                     }
                     className="w-full h-auto object-cover object-center block"
                   />
                 </div>
                 <div className="mt-3 flex items-center justify-between px-2 text-xs text-slate-500 font-mono">
-                  <span>MYHub Retail · In-Store POS &amp; Online App</span>
-                  <span className="text-emerald-600 font-medium">● 50,000+ Retailers</span>
+                  <span>{caseStudy.captionLeft}</span>
+                  <span className="text-emerald-600 font-medium">{caseStudy.badgeLeft}</span>
                 </div>
               </Reveal>
             </div>
@@ -57,41 +58,41 @@ export const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ project, o
               <Reveal>
                 {/* Eyebrow */}
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-xs font-mono font-semibold text-blue-700 uppercase tracking-wider mb-2.5 w-fit">
-                  Retail · iOS &amp; Android · Shipped
+                  {caseStudy.eyebrow}
                 </div>
 
                 {/* Title */}
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-[1.12]">
-                  MyHub Retail
+                  {project.title}
                 </h1>
 
                 {/* Headline */}
                 <p className="mt-3 text-lg sm:text-xl font-medium text-slate-800 leading-snug">
-                  Redesigning how 50,000+ Indian retailers sell in-store and online from one app.
+                  {caseStudy.headline}
                 </p>
 
                 {/* Meta row */}
                 <div className="my-5 p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-slate-50 border border-slate-200/80 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs sm:text-sm font-medium text-slate-700">
                   <div>
                     <span className="text-slate-400 font-mono text-xs uppercase tracking-wider mr-1.5">Role:</span>
-                    <span className="font-semibold text-slate-900">Product Designer</span>
+                    <span className="font-semibold text-slate-900">{caseStudy.role}</span>
                   </div>
                   <span className="text-slate-300 hidden sm:inline">•</span>
                   <div>
                     <span className="text-slate-400 font-mono text-xs uppercase tracking-wider mr-1.5">Timeline:</span>
-                    <span className="font-semibold text-slate-900">10 weeks, 2026</span>
+                    <span className="font-semibold text-slate-900">{caseStudy.timeline}</span>
                   </div>
                   <span className="text-slate-300 hidden sm:inline">•</span>
                   <div>
                     <span className="text-slate-400 font-mono text-xs uppercase tracking-wider mr-1.5">Platform:</span>
-                    <span className="font-semibold text-slate-900">iOS &amp; Android</span>
+                    <span className="font-semibold text-slate-900">{caseStudy.platform}</span>
                   </div>
                   <span className="text-slate-300 hidden sm:inline">•</span>
                   <div className="flex items-center gap-1.5">
                     <span className="text-slate-400 font-mono text-xs uppercase tracking-wider mr-0.5">Status:</span>
                     <span className="inline-flex items-center gap-1 font-semibold text-emerald-700 bg-emerald-100/80 px-2 py-0.5 rounded-full text-xs">
                       <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                      Live
+                      {caseStudy.status}
                     </span>
                   </div>
                 </div>
@@ -103,7 +104,7 @@ export const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ project, o
                   The problem
                 </h2>
                 <p className="text-[15px] sm:text-base text-slate-700 leading-relaxed font-normal">
-                  Retailers ran one business across disconnected tools for products, stock, billing and online orders. Stock went wrong between the counter and online, and going online felt like a risk because nobody could tell what was missing.
+                  {caseStudy.problem}
                 </p>
               </Reveal>
 
@@ -113,18 +114,12 @@ export const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ project, o
                   Who it’s for
                 </h2>
                 <ul className="space-y-1.5 text-[15px] sm:text-base text-slate-700 font-normal">
-                  <li className="flex items-start gap-2.5">
-                    <span className="text-[#1d8fe0] mt-1 font-bold text-xs">✦</span>
-                    <span>Independent owners running a single store</span>
-                  </li>
-                  <li className="flex items-start gap-2.5">
-                    <span className="text-[#1d8fe0] mt-1 font-bold text-xs">✦</span>
-                    <span>Vendors managing a chain of stores</span>
-                  </li>
-                  <li className="flex items-start gap-2.5">
-                    <span className="text-[#1d8fe0] mt-1 font-bold text-xs">✦</span>
-                    <span>Sub-vendors running one store inside that chain</span>
-                  </li>
+                  {caseStudy.audience.map((item, idx) => (
+                    <li key={idx} className="flex items-start gap-2.5">
+                      <span className="text-[#1d8fe0] mt-1 font-bold text-xs">✦</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
                 </ul>
               </Reveal>
 
@@ -134,7 +129,7 @@ export const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ project, o
                   What I did
                 </h2>
                 <p className="text-[15px] sm:text-base text-slate-700 leading-relaxed font-normal">
-                  In-store research with retailers, then a redesign around how a store actually runs. I took it from research through to dev handoff, and it shipped in 10 weeks.
+                  {caseStudy.whatIDid}
                 </p>
               </Reveal>
 
@@ -144,38 +139,16 @@ export const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ project, o
                   Key decisions
                 </h2>
                 <div className="space-y-2.5 text-slate-700">
-                  <div className="p-3 sm:p-3.5 rounded-xl bg-slate-50/80 border border-slate-200/70">
-                    <span className="font-bold text-slate-900 block mb-0.5 text-[15px]">
-                      Go Live readiness checklist:
-                    </span>
-                    <span className="text-slate-600 text-sm sm:text-[15px] leading-relaxed">
-                      Owners see what’s ready, what’s blocking and what to fix next, instead of pressing a single toggle on faith.
-                    </span>
-                  </div>
-                  <div className="p-3 sm:p-3.5 rounded-xl bg-slate-50/80 border border-slate-200/70">
-                    <span className="font-bold text-slate-900 block mb-0.5 text-[15px]">
-                      One product, sellable everywhere:
-                    </span>
-                    <span className="text-slate-600 text-sm sm:text-[15px] leading-relaxed">
-                      A single record and a single stock count, so a counter sale and an online order update the same number.
-                    </span>
-                  </div>
-                  <div className="p-3 sm:p-3.5 rounded-xl bg-slate-50/80 border border-slate-200/70">
-                    <span className="font-bold text-slate-900 block mb-0.5 text-[15px]">
-                      Offline-first billing:
-                    </span>
-                    <span className="text-slate-600 text-sm sm:text-[15px] leading-relaxed">
-                      Bills close without internet and sync later, with clear sync states and conflict handling.
-                    </span>
-                  </div>
-                  <div className="p-3 sm:p-3.5 rounded-xl bg-slate-50/80 border border-slate-200/70">
-                    <span className="font-bold text-slate-900 block mb-0.5 text-[15px]">
-                      Chain store lifecycle:
-                    </span>
-                    <span className="text-slate-600 text-sm sm:text-[15px] leading-relaxed">
-                      Create → Pending → Assign Sub-vendor → Active, with clear Vendor and Sub-vendor permissions.
-                    </span>
-                  </div>
+                  {caseStudy.keyDecisions.map((decision, idx) => (
+                    <div key={idx} className="p-3 sm:p-3.5 rounded-xl bg-slate-50/80 border border-slate-200/70">
+                      <span className="font-bold text-slate-900 block mb-0.5 text-[15px]">
+                        {decision.title}
+                      </span>
+                      <span className="text-slate-600 text-sm sm:text-[15px] leading-relaxed">
+                        {decision.description}
+                      </span>
+                    </div>
+                  ))}
                 </div>
               </Reveal>
 
@@ -186,7 +159,7 @@ export const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ project, o
                     Outcome
                   </h2>
                   <p className="text-[15px] sm:text-base text-slate-800 leading-relaxed font-semibold">
-                    Shipped to 50,000+ retailers on iOS and Android.
+                    {caseStudy.outcome}
                   </p>
                 </div>
               </Reveal>
@@ -196,54 +169,27 @@ export const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ project, o
                 <h2 className="text-xs font-mono uppercase tracking-widest text-slate-400 font-bold mb-3">
                   Explore the project
                 </h2>
-                <div className="grid sm:grid-cols-3 gap-3">
-                  <a
-                    href={project.behanceUrl || 'https://www.behance.net/guptavanshika'}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="p-3.5 rounded-xl border border-slate-200 hover:border-blue-400 bg-white hover:bg-slate-50 transition-all group flex flex-col justify-between shadow-xs"
-                  >
-                    <div>
-                      <div className="text-[11px] text-blue-600 font-mono uppercase font-bold tracking-wider">Behance</div>
-                      <div className="text-sm font-bold text-slate-900 mt-0.5">Full case study</div>
-                      <div className="text-xs text-slate-500 mt-1 leading-snug">Process, research and decisions</div>
-                    </div>
-                    <div className="mt-3 flex items-center justify-end text-slate-400 group-hover:text-blue-600 transition-colors">
-                      <span className="text-sm font-bold group-hover:translate-x-0.5 transition-transform">→</span>
-                    </div>
-                  </a>
-
-                  <a
-                    href={project.figmaUrl || 'https://www.figma.com/'}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="p-3.5 rounded-xl border border-slate-200 hover:border-blue-400 bg-white hover:bg-slate-50 transition-all group flex flex-col justify-between shadow-xs"
-                  >
-                    <div>
-                      <div className="text-[11px] text-blue-600 font-mono uppercase font-bold tracking-wider">Figma</div>
-                      <div className="text-sm font-bold text-slate-900 mt-0.5">Detailed UI</div>
-                      <div className="text-xs text-slate-500 mt-1 leading-snug">Screens, components and design system</div>
-                    </div>
-                    <div className="mt-3 flex items-center justify-end text-slate-400 group-hover:text-blue-600 transition-colors">
-                      <span className="text-sm font-bold group-hover:translate-x-0.5 transition-transform">→</span>
-                    </div>
-                  </a>
-
-                  <a
-                    href="https://play.google.com/store/apps"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="p-3.5 rounded-xl border border-slate-200 hover:border-blue-400 bg-white hover:bg-slate-50 transition-all group flex flex-col justify-between shadow-xs"
-                  >
-                    <div>
-                      <div className="text-[11px] text-blue-600 font-mono uppercase font-bold tracking-wider">Play Store</div>
-                      <div className="text-sm font-bold text-slate-900 mt-0.5">Live app</div>
-                      <div className="text-xs text-slate-500 mt-1 leading-snug">Download and try it</div>
-                    </div>
-                    <div className="mt-3 flex items-center justify-end text-slate-400 group-hover:text-blue-600 transition-colors">
-                      <span className="text-sm font-bold group-hover:translate-x-0.5 transition-transform">→</span>
-                    </div>
-                  </a>
+                <div className={`grid gap-3 ${caseStudy.links.length === 1 ? 'sm:grid-cols-1 max-w-md' : caseStudy.links.length === 2 ? 'sm:grid-cols-2' : 'sm:grid-cols-3'}`}>
+                  {caseStudy.links.map((link, idx) => (
+                    <a
+                      key={idx}
+                      href={link.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="p-3.5 rounded-xl border border-slate-200 hover:border-blue-400 bg-white hover:bg-slate-50 transition-all group flex flex-col justify-between shadow-xs"
+                    >
+                      <div>
+                        <div className="text-[11px] text-blue-600 font-mono uppercase font-bold tracking-wider">
+                          {link.label}
+                        </div>
+                        <div className="text-sm font-bold text-slate-900 mt-0.5">{link.title}</div>
+                        <div className="text-xs text-slate-500 mt-1 leading-snug">{link.description}</div>
+                      </div>
+                      <div className="mt-3 flex items-center justify-end text-slate-400 group-hover:text-blue-600 transition-colors">
+                        <span className="text-sm font-bold group-hover:translate-x-0.5 transition-transform">→</span>
+                      </div>
+                    </a>
+                  ))}
                 </div>
               </Reveal>
             </div>

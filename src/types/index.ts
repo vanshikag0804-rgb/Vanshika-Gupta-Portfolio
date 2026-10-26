@@ -31,6 +31,36 @@ export interface Project {
   fullCover?: boolean;
   caseStudyImage?: string;
   caseStudyImageAlt?: string;
+  caseStudy?: ProjectCaseStudy;
+}
+
+export interface CaseStudyDecision {
+  title: string;
+  description: string;
+}
+
+export interface CaseStudyLink {
+  label: string;
+  title: string;
+  description: string;
+  url: string;
+}
+
+export interface ProjectCaseStudy {
+  eyebrow: string;
+  headline: string;
+  captionLeft: string;
+  badgeLeft: string;
+  role: string;
+  timeline: string;
+  platform: string;
+  status: string;
+  problem: string;
+  audience: string[];
+  whatIDid: string;
+  keyDecisions: CaseStudyDecision[];
+  outcome: string;
+  links: CaseStudyLink[];
 }
 
 export interface ShowcaseCursor {

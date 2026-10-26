@@ -1092,6 +1092,10 @@ html.is-loading .hero-stage * {
   height: clamp(1.1rem, 1.8vw, 1.3rem);
 }
 
+.company-logo--tierce {
+  height: clamp(1.6rem, 2.7vw, 2.0rem);
+}
+
 .company-logo:hover {
   opacity: 1;
   transform: scale(1.04);

@@ -55,8 +55,8 @@ export const ResumeSection: React.FC = () => (
                     </div>
                     <div className="font-mono-tech text-xs opacity-60">{job.period}</div>
                   </div>
-                  <div className="text-xs opacity-55 mt-0.5">
-                    {job.type} · {job.location}
+                  <div className="text-xs opacity-65 mt-0.5 font-medium text-blue-600 dark:text-blue-400">
+                    {job.description}
                   </div>
                   <ul className="mt-2 space-y-1 text-[14px] opacity-80 list-disc pl-4">
                     {job.highlights.map((point) => (
